@@ -46,7 +46,7 @@ except ImportError:
     log.warn("lxml not found -- some features will not be available")
     has_lxml = False
 
-DASHBOARD_URL="https://opendns.com/dashboard"
+DASHBOARD_URL = "https://opendns.com/dashboard"
 DOMAIN_TAG_URL = "http://www.opendns.com/community/domaintagging"
 
 class OpenDNSException(Exception):
@@ -62,9 +62,11 @@ class Client(object):
     network_id = None
     opener = None
     
-    def __init__(self, username, password, network_id, skip=False):
+    def __init__(self, username, password, network_id, user_agent=None,
+        skip=False):
         '''
-        Login to OpenDNS, set network id and DASHBOARD_URL opener for subsequent requests
+        Login to OpenDNS, set network id and DASHBOARD_URL opener for 
+        subsequent requests
         '''
         self.network_id = network_id
         
@@ -87,12 +89,13 @@ class Client(object):
                 'password' : password,
                 'sign_in_submit': 'foo'
             }
-            data = urllib.urlencode(post_vals)
-            user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'        
-            headers = {'User-Agent' : user_agent}
-            req = urllib2.Request(DASHBOARD_URL + '/signin', data, headers)
-            resp = self.opener.open(req)
-            text = resp.read()
+            if user_agent:
+                headers = {'User-Agent' : user_agent}
+            else:
+                headers = {}
+            text = self._get_response(
+                DASHBOARD_URL + '/signin', post_vals, headers)
+            
             if has_lxml:
                 parser = etree.HTMLParser()        
                 tree = etree.parse(StringIO(text), parser)
@@ -110,14 +113,15 @@ class Client(object):
         '''
         Retrieve stats via CSV and return a dictionary.
         
-        Can use either a single date or a date range (if ``end_date`` is included).
-        Dates must be of type ``datetime.date``.
+        Can use either a single date or a date range (if ``end_date`` is 
+        included). Dates must be of type ``datetime.date``.
         
-        ``which`` can be one of the following: totalrequests, unique domains, uniqueips,
-        requesttypes, topdomains, or any subrequest of topdomains: blocked, blacklist, 
-        category, phish, malware, smartcache.
+        ``which`` can be one of the following: totalrequests, unique domains, 
+        uniqueips, requesttypes, topdomains, or any subrequest of topdomains: 
+        blocked, blacklist, category, phish, malware, smartcache.
         '''
-        # TODO: currently only supports the first 200 records of any request (i.e. "page1")
+        # TODO: currently only supports the first 200 records of any request 
+        # (i.e. "page1")
 
         # format date
         if not end_date:
@@ -128,13 +132,14 @@ class Client(object):
             date = "%sto%s" % (begin_date, end_date)
         
         # get data
-        if which in ['blocked', 'blacklist', 'category', 'phish', 'malware', 'smartcache']:
-            url = DASHBOARD_URL + "/stats/%d/topdomains/%s/%s.csv" % (self.network_id, date, which)
+        if which in ['blocked', 'blacklist', 'category', 'phish', 'malware', 
+                    'smartcache']:
+            url = DASHBOARD_URL + "/stats/%d/topdomains/%s/%s.csv" % \
+                (self.network_id, date, which)
         else:
-            url = DASHBOARD_URL + "/stats/%d/%s/%s.csv" % (self.network_id, which, date)
-        resp = self.opener.open(url)
-        result = resp.read()
-        # result = CSV
+            url = DASHBOARD_URL + "/stats/%d/%s/%s.csv" % \
+                (self.network_id, which, date)
+        result = self._get_response(url)
         csv_reader = csv.DictReader(result.split(os.linesep))
         recs = []
         for i in csv_reader:
@@ -145,12 +150,14 @@ class Client(object):
         '''
         Returns a dictionary of categories and category info for a given domain
         '''
-        url = DASHBOARD_URL + "/stats/%s/topdomains_categories/%s" % (self.network_id, domain)
-        resp = self.opener.open(url)
-        text = resp.read()
-        resp_dict = json.loads(text)
-        if not resp_dict['rsp']['disabled'] and not resp_dict['rsp']['partial'] and not resp_dict['rsp']['enabled']:
-            raise OpenDNSException('The requested domain appears not to have been categorized by OpenDNS yet.')
+        url = DASHBOARD_URL + "/stats/%s/topdomains_categories/%s" % \
+            (self.network_id, domain)
+        resp_dict = self._get_response(url, returns_json=True)
+        if not resp_dict['rsp']['disabled'] and \
+            not resp_dict['rsp']['partial'] and \
+            not resp_dict['rsp']['enabled']:
+            raise OpenDNSException('The requested domain appears not to ' \
+                'have been categorized by OpenDNS yet.')
         else:
             return resp_dict
 
@@ -158,18 +165,21 @@ class Client(object):
         '''
         Returns a dictionary of individually blacklisted domains and their IDs
         '''
-        url = DASHBOARD_URL + "/settings/%s/content_filtering" % (self.network_id)
-        resp = self.opener.open(url)
-        text = resp.read()
+        url = DASHBOARD_URL + "/settings/%s/content_filtering" % \
+            (self.network_id)
+        text = self._get_response(url)
         parser = etree.HTMLParser()        
         tree = etree.parse(StringIO(text), parser)
         table = tree.xpath("//table[@id='always-block-table']")[0]
-        domains = [(int(i.get('for')), i.text) for i in table.iterdescendants() if i.tag=='label']        
+        domains = [(int(i.get('for')), i.text) 
+            for i in table.iterdescendants() if i.tag=='label']
         return dict(domains)
         
-    def add_blacklist_domain(self, domain):
+    def add_blacklist_domain(self, domain, force=False):
         '''
-        Add a domain to blacklist. Returns domain ID on success.
+        Add a domain to blacklist. Returns domain ID on success. An optional
+        ``force`` argument adds the domain even if it's being blocked by
+        a category
         '''
         url = DASHBOARD_URL + '/dashboard_ajax.php'
         post_vals = {
@@ -178,7 +188,7 @@ class Client(object):
             'blocked_domain': domain,
             'step1': 'true'
         }
-        msg_dict = self._post_return_json(url, post_vals)
+        msg_dict = self._get_response(url, post_vals, returns_json=True)
         if msg_dict.has_key('errors'):
             if msg_dict['errors']:
                 raise OpenDNSException(msg_dict['message'])
@@ -189,19 +199,25 @@ class Client(object):
             else:
                 return False
         elif msg_dict.has_key('enabled_count'):
-            log.warn('Domain already being blocked by category. Adding anyway.')
-            post_vals['step2'] = post_vals.pop('step1')
-            msg_dict = self._post_return_json(url, post_vals)
-            if msg_dict.has_key('success'):
-                if msg_dict['success']:
-                    return msg_dict['domain_id']
-                else:
-                    return False
+            if force:
+                log.warn('Domain already being blocked by category. ' \
+                    'Adding anyway.')
+                post_vals['step2'] = post_vals.pop('step1')
+                msg_dict = self._get_response(url, post_vals)
+                if msg_dict.has_key('success'):
+                    if msg_dict['success']:
+                        return msg_dict['domain_id']
+                    else:
+                        return False
+            else:
+                log.warn('Domain already being blocked by category. ' \
+                    'Skipping. Use force parameter if desired')
         return False
             
     def remove_blacklist_domains(self, domain_ids):
         '''
-        Delete list of domain IDs (integers) from blacklist. Returns True on success
+        Delete list of domain IDs (integers) from blacklist. Returns True 
+        on success
         '''
         url = DASHBOARD_URL + '/dashboard_ajax.php'
         post_vals = {
@@ -210,11 +226,7 @@ class Client(object):
         }        
         for i in domain_ids:
             post_vals['bdomain_id[%s]' % str(i)] = str(i)
-        data = urllib.urlencode(post_vals)
-        req = urllib2.Request(url, data)
-        resp = self.opener.open(req)
-        msg = resp.read()
-        msg_dict = json.loads(msg)
+        msg_dict = self._get_response(url, post_vals, returns_json=True)
         # NOTE: as of this writing, opendns always returns success regardless 
         # of what you feed it here
         if msg_dict['success']:
@@ -227,32 +239,37 @@ class Client(object):
         Returns a dictionary of category IDs and category names
         '''
         url = DOMAIN_TAG_URL + '/submit/'
-        resp = self.opener.open(url)
-        text = resp.read()        
+        text = self._get_response(url)
         parser = etree.HTMLParser()        
         tree = etree.parse(StringIO(text), parser)
         select = tree.xpath('//*[@id="cat_select"]')[0]
-        categories = [(int(i.get('value')), i.text.strip()) for i in select.iterchildren() if i.get('value') != '0']
+        categories = [(int(i.get('value')), i.text.strip())
+            for i in select.iterchildren() if i.get('value') != '0']
         return dict(categories)    
         
     def submit_domain(self, domain, category_id):
         '''
-        Submit a domain with recommended cateogory's ID (see ``get_categories``)
+        Submit a domain with recommended cateogory's ID (see 
+        ``get_categories``)
         '''
         url = DOMAIN_TAG_URL + '/contribute_ajax.php'
         post_vals = {
             'category_id': str(category_id),
             'domain': domain
         }
-        retval = self._post_return_json(url, post_vals)
+        retval = self._get_response(url, post_vals, returns_json=True)
         if retval.has_key('err'):
-            # NOTE: submitting a category for a domain when the category has already been suggested
-            # results in a "yes" vote, hence there's no separate "vote" method in this library.
-            log.warn('Category ID %d has already been submitted for %s. This may have resulted in a "yes" vote.' % (category_id, domain))
+            # NOTE: submitting a category for a domain when the category has 
+            # already been suggested results in a "yes" vote, hence there's 
+            # no separate "vote" method in this library.
+            log.warn('Category ID %d has already been submitted for %s. ' \
+            'This may have resulted in a "yes" vote.' % (category_id, domain))
         if retval.has_key('d'):
             return True
         else:
-            raise OpenDNSException("An unknown error occurred submitting a domain.")
+            raise OpenDNSException(
+                "An unknown error occurred submitting a domain."
+            )
 
     def get_blocked_custom_categories(self):
         # TODO
@@ -266,10 +283,18 @@ class Client(object):
         # TODO
         pass
         
-    def _post_return_json(self, url, post_vals):
-        data = urllib.urlencode(post_vals)
-        req = urllib2.Request(url, data)
-        resp = self.opener.open(req)        
-        msg = resp.read()
-        msg_dict = json.loads(msg)        
-        return msg_dict
+    def _get_response(self, url, post_vals=None, headers={}, 
+        returns_json=False):
+        optional_params = {}
+        if post_vals:
+            data = urllib.urlencode(post_vals)
+        else:
+            data = None
+        req = urllib2.Request(url, data, headers)
+        resp = self.opener.open(req)
+        text = resp.read()
+        if returns_json:
+            msg_dict = json.loads(text)
+            return msg_dict
+        else:
+            return text
