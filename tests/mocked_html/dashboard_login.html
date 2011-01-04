@@ -1,0 +1,125 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+        <title>OpenDNS &gt; Sign in to your OpenDNS Dashboard</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script src="https://www-files.opendns.com/jsloader/jquery:992885b3,mootools:a46780b5,common:c782e969.js" type="text/javascript"></script>
+        <script type="text/javascript">var $jq = jQuery.noConflict();</script>
+        <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(
+        ['_setAccount', 'UA-1163522-1'],
+        ['_setDomainName', '.opendns.com'],
+        ['_setAllowHash', false],
+        ['_addIgnoredRef', 'opendns.com'],
+        ['_trackPageview']);
+</script>
+        <link rel="stylesheet" href="https://www.opendns.com/dashboard/css/main.css" type="text/css" />
+                        <style type="text/css">
+        <!--
+                body { background: #ddd; margin: 20px 0 0 0; font-size: 11px; line-height: 15px; }
+                                #account { width: 680px; margin: 0 auto; }
+                #account .left { float: left; width: 220px; margin-right: 20px; margin-bottom: 5px; }
+                #account .right { float: left; width: 360px; margin-bottom: 5px; }
+                                p { padding-bottom: 10px; }
+                table.account { margin:0; padding:0; }
+                table.account td { padding: 0 5px 5px 0; font-size: 11px;  line-height: 15px; }
+                h4 { border-top: 1px solid #ddd; padding-top: 20px; color: #4c555a; }
+                .bottomlinks { border-top: 1px solid #ddd; padding-top: 20px; }
+                .grey { color: #666; font-size: 10px; }
+        -->
+        </style>
+</head>
+<body>
+
+<div id="account">
+
+<div class="roundbox">
+<div class="top"><div class="top-inner"></div></div>
+<div class="inner">
+<div class="left">
+                        <img src="https://www-files.opendns.com/img/logo-opendns-signin.gif" width="220" height="65" border="0" />
+        </div>
+
+<div class="right">
+<form id="sign_in_form" name="sign_in" method="post">
+        <input type="hidden" name="formtoken" value="65a1d7ee78504f2de47f8491e84543a9" />
+                                        <table class="account" cellspacing="0" cellpadding="0">
+                <tr>
+                        <td width="30%" style="white-space: nowrap"><b>Email (or username):</b></td>
+                        <td width="70%"><input name="username" type="text" style="width: 200px" /></td>
+                </tr>
+                <tr>
+                        <td><b>Password:</b></td>
+                        <td><input name="password" type="password" style="width: 200px" /></td>
+                </tr>
+                <tr>
+                        <td align="right"><input name="dont_expire" id="dont_expire" type="checkbox" checked="checked" /></td>
+                        <td><label for="dont_expire">Keep me signed in until I sign out</label></td>
+                </tr>
+                <tr>
+                        <td style="padding:0 0 15px 0;">&nbsp;</td>
+                        <td style="padding:0 0 15px 0;"><div style=""><div class="button"><input  class="submitbutton" type="submit" name="sign_in_submit" value="Sign in" /></div></div><div class="clr"></div></td>
+                </tr>
+        </table>
+</form>
+</div>
+<div class="clr"></div>
+
+<div class="bottomlinks">
+        <p>
+                                        <span style="float: right;">
+                                Don't have an account? <a href="http://store.opendns.com/"><b>Get started!</b></a>
+                        </span>
+                                <a href="#" onclick="toggle('resetpwd');return false;"><b>Forgot your password?</b></a>
+        </p>
+        <div class="clr"></div>
+        <div id="lp-msg"><span></span></div>
+        <div id="resetpwd" style="display:none; padding: 5px 0 20px 0;">
+                <p>Enter your email address and we'll send you a link to reset your password.</p>
+                <p class="slim">
+                        <input id="email" type="text" size="20" name="email" />
+                </p>
+                <p>
+                        <div class="button"><input type="submit" class="submitbutton" value="Reset password" onclick="forgot_pass();return false;" /></div>
+                        &nbsp;or <a href="#" onclick="toggle('resetpwd');return false;">cancel</a>
+                </p>
+                <div class="clr"></div>
+        </div>
+</div>
+</div>
+<div class="bottom"><div class="bottom-inner"><div class="bottom-inner-white"></div></div></div>
+</div><!-- / roundbox -->
+
+
+</div><!-- / account container-->
+
+
+<script type="text/javascript">
+if (document.sign_in && document.sign_in.username)
+        document.sign_in.username.focus();
+</script>
+
+<div class="terms">
+        <p class="center slim">
+                Copyright &copy; 2011                                   <a href="http://www.opendns.com/">OpenDNS</a></b> |
+                                <a href="http://www.opendns.com/terms/">Terms of Use</a> |
+                <a href="http://www.opendns.com/privacy/">Privacy Policy</a> |
+                <a href="http://www.opendns.com/support/">Support</a>
+        </p>
+</div>
+
+</body>
+<script type="text/javascript">
+(function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ?
+                'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        (document.getElementsByTagName('head')[0] ||
+                document.getElementsByTagName('body')[0]).appendChild(ga);
+})();
+</script></html>

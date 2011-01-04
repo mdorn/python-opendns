@@ -46,7 +46,7 @@ except ImportError:
     log.warn("lxml not found -- some features will not be available")
     has_lxml = False
 
-DASHBOARD_URL = "https://opendns.com/dashboard"
+DASHBOARD_URL = "https://www.opendns.com/dashboard"
 DOMAIN_TAG_URL = "http://www.opendns.com/community/domaintagging"
 
 class OpenDNSException(Exception):
@@ -63,14 +63,14 @@ class Client(object):
     opener = None
     
     def __init__(self, username, password, network_id, user_agent=None,
-        skip=False):
+        skip_login=False):
         '''
-        Login to OpenDNS, set network id and DASHBOARD_URL opener for 
+        Login to OpenDNS, set network id and URL opener for 
         subsequent requests
         '''
         self.network_id = network_id
         
-        if skip:
+        if skip_login:
             self.opener = None
         else:
             cj = cookielib.CookieJar()
@@ -195,7 +195,7 @@ class Client(object):
 
         if msg_dict.has_key('success'):
             if msg_dict['success']:
-                return msg_dict['domain_id']
+                return int(msg_dict['domain_id'])
             else:
                 return False
         elif msg_dict.has_key('enabled_count'):
@@ -203,10 +203,10 @@ class Client(object):
                 log.warn('Domain already being blocked by category. ' \
                     'Adding anyway.')
                 post_vals['step2'] = post_vals.pop('step1')
-                msg_dict = self._get_response(url, post_vals)
+                msg_dict = self._get_response(url, post_vals, returns_json=True)
                 if msg_dict.has_key('success'):
                     if msg_dict['success']:
-                        return msg_dict['domain_id']
+                        return int(msg_dict['domain_id'])
                     else:
                         return False
             else:
@@ -268,8 +268,20 @@ class Client(object):
             return True
         else:
             raise OpenDNSException(
-                "An unknown error occurred submitting a domain."
+                'An unknown error occurred submitting a domain.'
             )
+
+    def get_whitelist_domains(self):
+        # TODO
+        pass
+        
+    def add_whitelist_domain(self, domain, force=False):
+        # TODO
+        pass
+
+    def remove_whitelist_domains(self, domain_ids):
+        # TODO
+        pass
 
     def get_blocked_custom_categories(self):
         # TODO

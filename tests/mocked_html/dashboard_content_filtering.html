@@ -1,0 +1,1353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+		<title>OpenDNS Dashboard  &gt; Settings &gt; Web Content Filtering</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	
+<script src="https://www-files.opendns.com/jsloader/jquery:992885b3.js" type="text/javascript"></script>
+	<script type="text/javascript">var $jq = jQuery.noConflict();</script>
+	
+<script src="https://www-files.opendns.com/jsloader/mootools:a46780b5,common:c782e969,flashdetect:bed2bbd3,tips:bb781c07,datepicker:7c36de9b,jqcolorbox:07b7f3a9,superfish:f3a0a497.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(
+	['_setAccount', 'UA-1163522-1'],
+	['_setDomainName', '.opendns.com'],
+	['_setAllowHash', false],
+	['_addIgnoredRef', 'opendns.com'],
+	['_trackPageview']);
+</script>
+	<link href="/css/superfish.css" rel="stylesheet" type="text/css" />
+	<link href="https://www-files.opendns.com/js/greybox/gb_styles.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://www-files.opendns.com/dashboard/css/main.v116.css" type="text/css" />
+	<link rel="stylesheet" href="https://www-files.opendns.com/dashboard/css/datepicker.v102.css" type="text/css" />
+	<link href="https://www-files.opendns.com/css/colorbox.css" rel="stylesheet" type="text/css" />
+	<!--[if IE 6]>
+	<link rel="stylesheet" href="https://www-files.opendns.com/dashboard/css/ie6.css" type="text/css" />
+	<![endif]-->
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="https://www-files.opendns.com/dashboard/css/ie7.css" type="text/css" />
+	<![endif]-->
+						<link rel="stylesheet" type="text/css" href="https://www-files.opendns.com/css/header.v101.css" />
+
+		<link rel="stylesheet" type="text/css" href="https://www-files.opendns.com/css/colorbox.css" />
+	<!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="https://www-files.opendns.com/css/header_ie.v101.css" />
+	<![endif]-->
+	<!--[if IE 6]>
+	<link rel="stylesheet" type="text/css" href="https://www-files.opendns.com/css/header_ie6.v100.css" />
+	<![endif]-->
+	
+	<!-- temp css -->
+	<style type="text/css">
+	.needcopy {
+		color: #000 !important; background: #ffccff !important;
+	}
+	</style>
+</head>
+<body style="background: #ddd;">
+<img src="https://www.dnsomatic.com/service_link_902536c6f14fbfb4d0b51f207f60937c.gif" style="position: absolute; top: 0;" />
+
+
+<div id="top-bar-container" class="dashboard" style="background: #2c3034; color: #ddd;">
+
+	<div id="top-bar" class="dashboard" style="background: #2c3034 url(https://www-files.opendns.com/img/top_bar_bg_dashboard.gif) no-repeat top right;">
+		<div style="float: right; padding: 2px 25px 0 0;">
+							<b><a href="https://www.opendns.com/dashboard/myaccount/">m@example.com</a></b>
+				(<a href="https://www.opendns.com/dashboard/signout/back/">Sign out</a>)
+					</div>
+		<p>Your current IP is <b>69.209.207.162</b>.</p>
+
+	</div>
+</div>
+
+
+
+<div style="position: relative;" class="rel-dashboard"> <div style="position: absolute; top: 0; left: 0; height: 83px; width: 50%; z-index: 1; background: url(https://www-files.opendns.com/img/nav_global_bg_1_dashboard.gif) repeat-x;"></div>
+<div style="position: absolute; top: 0; right: 0; height: 83px; width: 60%; z-index: 2; background: url(https://www-files.opendns.com/img/nav_global_bg_2_dashboard.gif) repeat-x;"></div>
+
+<div id="global-header">
+		<div id="logo-wrapper">
+		<div id="logo"><h2 style="background:url(https://www-files.opendns.com/img/logo_dashboard.gif) no-repeat;"><a title="Go to opendns.com" href="http://www.opendns.com"><span>OpenDNS</span></a></h2></div>
+		<div id="logo-slash" class="dashboard">
+
+							<h3 style="background:url(https://www-files.opendns.com/img/logo_slash_dashboard.gif) no-repeat;"><a href="https://www.opendns.com/dashboard/"><span> / dashboard</span></a></h3>
+					</div>
+	</div>
+		<div id="nav-wrapper" class="dashboard">
+						<ul id="top-nav" class="dashboard" style="width:325px;">
+				<li><a href="http://www.opendns.com" style="width: 92px; margin-right: 27px;" ><span>Home</span></a></li>
+				<li><a href="https://www.opendns.com/dashboard/" style="width: 76px; margin-right: 25px;"  class="no-hover"><span>Dashboard</span></a></li>
+
+				<li><a href="http://www.opendns.com/community/" style="width: 80px; margin-right: 25px" ><span>Community</span></a></li>
+							</ul>
+			
+						<div id="tab-wrapper">
+								<ul id="dashboard-nav" style="background: url(https://www-files.opendns.com/img/header_topnav_account.gif) no-repeat; background-position: 0 -78px;">
+					<li><a href="https://www.opendns.com/dashboard/" style="width: 61px;"><span>Dashboard Home</span></a></li>
+					<li><a href="https://www.opendns.com/dashboard/stats/all/start/" style="width: 64px;"><span>Stats</span></a></li>
+					<li><a href="https://www.opendns.com/dashboard/settings/" style="width: 82px;" class="no-hover"><span>Settings</span></a></li>
+
+					<li><a href="https://www.opendns.com/dashboard/shortcuts/" style="width: 95px;"><span>Shortcuts</span></a></li>
+					<li><a href="https://www.opendns.com/dashboard/myaccount/" style="width: 102px;"><span>Account</span></a></li>
+					<li><a href="https://www.opendns.com/dashboard/support/" style="width: 80px;"><span>Support</span></a></li>
+					<li><a href="https://www.opendns.com/dashboard/tell_a_friend/" style="width: 107px;"><span>Tell a Friend</span></a></li>
+								</ul>
+			</div>
+	 </div>
+
+	 <div class="clr"></div>
+</div>
+
+<div style="height: 20px; background: #ddd;">&nbsp;</div>
+</div> 
+
+<div id="container">
+
+		<div id="upsell-message" style="display: block">
+			  <div class="roundbox-alert">
+			  <div class="top"><div class="top-inner"></div></div>
+			  <div class="inner">
+				<ul style="margin: 0; padding: 0;">
+
+																<li style="background: url(https://www-files.opendns.com/dashboard/img/icon_alert_upgrade.png) no-repeat 0 10px; padding: 10px 0 10px 25px;"><b><a href="https://www.opendns.com/start/deluxe/family?utm_source=dashboard&utm_medium=acctnote&utm_campaign=dashboard">Upgrade to OpenDNS Deluxe</a></b> to get more control over which sites are accessible on your home network, store your stats for a full year, remove advertisements and more. Only $9.95 per household/per year.</li>
+									</ul>
+			  </div>
+			  <div class="bottom"><div class="bottom-inner"><div class="bottom-inner-white"></div></div></div>
+			  </div><!-- / roundbox alert -->
+		</div><!-- /upsell-message -->
+		
+	<div class="roundbox">
+
+	
+	<div class="top"><div class="top-inner"></div></div>
+
+	<div class="inner">
+	
+		
+
+
+	<!--[if IE]>
+	<style type="text/css">
+	.subsubnav { border-top: 1px solid #ddd; border-bottom: 0; }
+	</style>
+	<![endif]-->
+	<!--[if IE 6]>
+	<style type="text/css">
+	.subsubnav li { margin: 0; }
+	</style>
+	<![endif]-->
+
+<div style="float: right">
+	<a class="smallbutton" href="/dashboard/settings/">Add/Manage Networks</a>
+</div>
+
+<h2 class="settings">
+
+Settings for:&nbsp;<select id="navigation-select" name="navigation-select" 
+	onchange="return redirect_settings_page(this, '');">
+	<option value="manage">-- Select a network --</option>
+	<option disabled></option>
+													<option value="1443204"
+				>
+								1.1.1.13/32				(net1)			</option>
+					<option value="1361005"
+				>
+								2.2.2.2/32				(user)			</option>
+
+					<option value="1394024"
+				selected>
+								3.3.3.3/32				(net2)			</option>
+			
+</select>
+</h2>
+
+			
+	<div class="left">
+		<h4 class="subnav-category"></h4><ul class="subnav"><li class="active"><a href="https://www.opendns.com/dashboard/settings/1394024/content_filtering">Web Content Filtering</a></li><li class="default"><a href="https://www.opendns.com/dashboard/settings/1394024/security">Security</a></li><li class="default"><a href="https://www.opendns.com/dashboard/settings/1394024/customization">Customization</a></li><li class="default"><a href="https://www.opendns.com/dashboard/settings/1394024/stats">Stats and Logs</a></li><li class="default"><a href="https://www.opendns.com/dashboard/settings/1394024/advanced">Advanced Settings</a></li></ul>		<div class="sidebox"><h4>Users can contact you</h4><p>Your users can contact you directly from the block page if they have questions. It'll show up as an email in your inbox.</p></div><div class="sidebox"><h4>Note about DNS forwarding</h4><p>If you are forwarding requests to OpenDNS, domain
+				blocking may not work properly if the domain's address is in your forwarder's cache.</p></div><div class="sidebox"><h4>Check a domain</h4><p><a href="http://www.opendns.com/cache/adult/">Find out</a> whether it would be blocked, and why.</p></div><div class="sidebox"><h4>Support Articles</h4><ul class="bulleted"><li style="padding: 2px 0;"><a href="http://www.opendns.com/support/article/143">Blocked domain still available</a></li><li style="padding: 2px 0;"><a href="http://www.opendns.com/support/article/139">Domains that may not be blocked with OpenDNS domain blocking</a></li></ul></div>	</div>
+
+	<div class="right">
+		<h3>Web Content Filtering</h3>
+		
+
+<div class="setting-top"></div>
+<div class="setting">
+<h4 style="border-bottom: 1px solid #ddd; padding: 0 0 5px 0;">Choose your filtering level</h4>
+
+<table width="100%" cellspacing="0" cellpadding="3" class="levels">
+<tr>
+<td valign="top"><input id="high" class="level bundle hide-custom" type="radio" name="level"  /></td>
+	<td valign="top" width="20%">
+
+		<p class="slim"><b style="color: #990000;"><label for="high">High</label></b></p>
+	</td>
+	<td width="80%">
+		<p class="slim">Protects against all adult-related sites, illegal activity, social networking sites, video sharing sites, and general time-wasters.</p>
+		<p class="slim small"><b>26</b> categories in this group - <a style="text-decoration: underline; cursor: pointer;" id="group-high">View</a> - <a class="bundle-customize" id="high" style="text-decoration: underline; cursor: pointer;">Customize</a></p>
+
+		<div id="categories-high" style="
+			display: none;
+			position: absolute;
+			width: 350px;
+			height: 150px;
+			overflow: auto;
+			border: 1px solid #999;
+			background: #fff;
+			text-align: left;
+			padding: 10px;">
+		<div style="float: right;" id="group-high-close" class="small"><a style="cursor: pointer;">[x]</a></div>
+		<ul style="margin-bottom: 0; padding-bottom: 0;">
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Adware</b><br />
+				Sites that distribute applications which display advertisements without user's knowledge or choice. Does NOT include sites which serve advertising.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+
+				<b>Alcohol</b><br />
+				Sites about alcohol use, commercial and otherwise.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Chat</b><br />
+				Sites where you can chat in real-time with groups of people. Includes IRC.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Classifieds</b><br />
+
+				Sites for buying and selling (or bartering) goods and services.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Dating</b><br />
+				Sites for meeting other people.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Drugs</b><br />
+				Sites about illegal or recreational drug use.			</li>
+
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>File storage</b><br />
+				Sites that offer space for hosting, sharing and backup of digital files.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Gambling</b><br />
+				Sites that offer gambling or information about gambling.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+
+				<b>Games</b><br />
+				Sites that offer game play and information about games (news, tips, cheat codes).			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Hate/Discrimination</b><br />
+				Sites that promote intolerance based on gender, age, race, nationality, religion, sexual orientation or other group identities.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Instant messaging</b><br />
+
+				Sites that offer access or software to communicate in real-time with other individuals.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>P2P/File sharing</b><br />
+				Sites that facilitate the sharing of digital files between individuals, especially via peer-to-peer software, including torrent sites.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Social networking</b><br />
+				Sites that promote interaction and networking between people.			</li>
+
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Video sharing</b><br />
+				Sites for sharing video content.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Visual search engines</b><br />
+				Sites for searching for images based on keywords.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+
+				<b>Weapons</b><br />
+				Sites about weapons, commercial and otherwise.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Webmail</b><br />
+				Sites that offer the ability to send or receive email.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Photo sharing</b><br />
+
+				Sites for sharing photographs, as individual images, galleries and albums.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Adult Themes</b><br />
+				Sites that are adult in nature and are not defined in other rating categories. Note: This category should only be turned on if you want to be very restrictive on your network.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Tasteless</b><br />
+				Sites that contain information on such subjects as mutilation, torture, horror, or the grotesque.			</li>
+
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Lingerie/Bikini</b><br />
+				Sites displaying or dedicated to lingerie/bikini that could be considered adult-only.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Proxy/Anonymizer</b><br />
+				Sites providing proxy bypass information or services. Also, sites that allow the user to surf the net anonymously, including sites that allow the user to send anonymous emails.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+
+				<b>Sexuality</b><br />
+				Sites that provide information, images or implications of bondage, sadism, masochism, fetish, beating, body piercing or self-mutilation.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Nudity</b><br />
+				Sites that provide images or representations of nudity.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Pornography</b><br />
+
+				Anything relating to pornography, including mild depiction, soft pornography or hard-core pornography.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Forums/Message boards</b><br />
+				Sites with discussions, including bulletin boards, message boards and forums.			</li>
+				</ul>
+		</div>
+									
+	</td>
+
+</tr>
+<tr>
+<td valign="top"><input id="moderate" class="level bundle hide-custom" type="radio" name="level"  /></td>
+	<td valign="top" width="20%">
+		<p class="slim"><b style="color: #d9410c;"><label for="moderate">Moderate</label></b></p>
+	</td>
+	<td width="80%">
+		<p class="slim">Protects against all adult-related sites and illegal activity.</p>
+		<p class="slim small"><b>13</b> categories in this group - <a style="text-decoration: underline; cursor: pointer;" id="group-moderate">View</a> - <a class="bundle-customize" id="moderate" style="text-decoration: underline; cursor: pointer;">Customize</a></p>
+
+		<div id="categories-moderate" style="
+			display: none;
+			position: absolute;
+			width: 350px;
+			height: 150px;
+			overflow: auto;
+			border: 1px solid #999;
+			background: #fff;
+			text-align: left;
+			padding: 10px;">
+		<div style="float: right;" id="group-moderate-close" class="small"><a style="cursor: pointer;">[x]</a></div>
+		<ul style="margin-bottom: 0; padding-bottom: 0;">
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Adware</b><br />
+				Sites that distribute applications which display advertisements without user's knowledge or choice. Does NOT include sites which serve advertising.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+
+				<b>Alcohol</b><br />
+				Sites about alcohol use, commercial and otherwise.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Dating</b><br />
+				Sites for meeting other people.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Drugs</b><br />
+
+				Sites about illegal or recreational drug use.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Gambling</b><br />
+				Sites that offer gambling or information about gambling.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Hate/Discrimination</b><br />
+				Sites that promote intolerance based on gender, age, race, nationality, religion, sexual orientation or other group identities.			</li>
+
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Weapons</b><br />
+				Sites about weapons, commercial and otherwise.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Tasteless</b><br />
+				Sites that contain information on such subjects as mutilation, torture, horror, or the grotesque.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+
+				<b>Lingerie/Bikini</b><br />
+				Sites displaying or dedicated to lingerie/bikini that could be considered adult-only.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Proxy/Anonymizer</b><br />
+				Sites providing proxy bypass information or services. Also, sites that allow the user to surf the net anonymously, including sites that allow the user to send anonymous emails.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Sexuality</b><br />
+
+				Sites that provide information, images or implications of bondage, sadism, masochism, fetish, beating, body piercing or self-mutilation.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Nudity</b><br />
+				Sites that provide images or representations of nudity.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Pornography</b><br />
+				Anything relating to pornography, including mild depiction, soft pornography or hard-core pornography.			</li>
+
+				</ul>
+		</div>
+									
+	</td>
+</tr>
+<tr>
+<td valign="top"><input id="low" class="level bundle hide-custom" type="radio" name="level"  /></td>
+	<td valign="top" width="20%">
+		<p class="slim"><b style="color: #fb8507;"><label for="low">Low</label></b></p>
+	</td>
+	<td width="80%">
+
+		<p class="slim">Protects against pornography.</p>
+		<p class="slim small"><b>4</b> categories in this group - <a style="text-decoration: underline; cursor: pointer;" id="group-low">View</a> - <a class="bundle-customize" id="low" style="text-decoration: underline; cursor: pointer;">Customize</a></p>
+		<div id="categories-low" style="
+			display: none;
+			position: absolute;
+			width: 350px;
+			height: 150px;
+			overflow: auto;
+			border: 1px solid #999;
+			background: #fff;
+			text-align: left;
+			padding: 10px;">
+		<div style="float: right;" id="group-low-close" class="small"><a style="cursor: pointer;">[x]</a></div>
+
+		<ul style="margin-bottom: 0; padding-bottom: 0;">
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Tasteless</b><br />
+				Sites that contain information on such subjects as mutilation, torture, horror, or the grotesque.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Proxy/Anonymizer</b><br />
+				Sites providing proxy bypass information or services. Also, sites that allow the user to surf the net anonymously, including sites that allow the user to send anonymous emails.			</li>
+
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Sexuality</b><br />
+				Sites that provide information, images or implications of bondage, sadism, masochism, fetish, beating, body piercing or self-mutilation.			</li>
+					<li style="font-size: 11px; line-height: 15px;">
+				<b>Pornography</b><br />
+				Anything relating to pornography, including mild depiction, soft pornography or hard-core pornography.			</li>
+				</ul>
+
+		</div>
+	</td>
+</tr>
+<tr>
+<td valign="top"><input id="none" class="level bundle hide-custom" type="radio" name="level"   /></td>
+	<td valign="top" width="20%">
+		<p class="slim"><b style="color: #999;"><label for="none">None</label></b></p>
+	</td>
+	<td width="80%">
+		<p class="slim">Nothing blocked.</p>
+
+	</td>
+</tr>
+<tr>
+<td valign="top"><input id="custom" class="level" type="radio" name="level"  checked="checked" /></td>
+	<td valign="top" width="20%">
+		<p class="slim"><b><label for="custom">Custom</label></b></p>
+	</td>
+	<td width="80%">
+		<p class="slim">Choose the categories you want to block.</p>
+
+	</td>
+</tr>
+</table>
+<form id="categories-form" method="post" action="/dashboard/dashboard_ajax.php" onsubmit="return false;">
+	<input type="hidden" name="n" id="n" value="1394024" />
+	<input type="hidden" name="action" id="action" value="save_blocking_categories" />
+	<input type="hidden" name="return" id="return" value="/dashboard/settings/1394024/content_filtering" />
+	<input type="hidden" name="n" id="n" value="1394024" />
+	<div style="display: none; border: 1px solid #ddd;" id="custom-setting">
+	<!-- categories begin -->
+
+	
+	<div style="margin-bottom: 10px;">
+		
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[72]" class="category_checkbox" name="dt_category[72]" value="72"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that promote educational fraud, including but not limited to plagiarism and cheating.">
+				<label for="dt_category[72]">Academic Fraud</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[58]" class="category_checkbox" name="dt_category[58]" value="58"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that are adult in nature and are not defined in other rating categories. Note: This category should only be turned on if you want to be very restrictive on your network.">
+				<label for="dt_category[58]">Adult Themes</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[1]" class="category_checkbox" name="dt_category[1]" value="1"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that distribute applications which display advertisements without user\&#039;s knowledge or choice. Does NOT include sites which serve advertising.">
+
+				<label for="dt_category[1]">Adware</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[2]" class="category_checkbox" name="dt_category[2]" value="2"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about alcohol use, commercial and otherwise.">
+				<label for="dt_category[2]">Alcohol</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[3]" class="category_checkbox" name="dt_category[3]" value="3"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for buying and selling via auction.">
+				<label for="dt_category[3]">Auctions</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[70]" class="category_checkbox" name="dt_category[70]" value="70"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about automobiles, including manufacturers, news, reviews and hobbyist information.">
+				<label for="dt_category[70]">Automotive</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[4]" class="category_checkbox" name="dt_category[4]" value="4"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that are personal or group journals, diaries or publications.">
+
+				<label for="dt_category[4]">Blogs</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[56]" class="category_checkbox" name="dt_category[56]" value="56"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for corporations and businesses of all sizes, especially company websites.">
+				<label for="dt_category[56]">Business Services</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[5]" class="category_checkbox" name="dt_category[5]" value="5"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites where you can chat in real-time with groups of people. Includes IRC.">
+				<label for="dt_category[5]">Chat</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[6]" class="category_checkbox" name="dt_category[6]" value="6"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for buying and selling (or bartering) goods and services.">
+				<label for="dt_category[6]">Classifieds</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[7]" class="category_checkbox" name="dt_category[7]" value="7"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for meeting other people.">
+
+				<label for="dt_category[7]">Dating</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[8]" class="category_checkbox" name="dt_category[8]" value="8"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about illegal or recreational drug use.">
+				<label for="dt_category[8]">Drugs</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[9]" class="category_checkbox" name="dt_category[9]" value="9"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that are online stores for products and services.">
+				<label for="dt_category[9]">Ecommerce/Shopping</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[52]" class="category_checkbox" name="dt_category[52]" value="52"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for schools, covering all age levels and types.">
+				<label for="dt_category[52]">Educational Institutions</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[10]" class="category_checkbox" name="dt_category[10]" value="10"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer space for hosting, sharing and backup of digital files.">
+
+				<label for="dt_category[10]">File storage</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[55]" class="category_checkbox" name="dt_category[55]" value="55"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for banks, brokerages, trusts and other financial organizations.">
+				<label for="dt_category[55]">Financial institutions</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[67]" class="category_checkbox" name="dt_category[67]" value="67"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites with discussions, including bulletin boards, message boards and forums.">
+				<label for="dt_category[67]">Forums/Message boards</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[11]" class="category_checkbox" name="dt_category[11]" value="11"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer gambling or information about gambling.">
+				<label for="dt_category[11]">Gambling</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[12]" class="category_checkbox" name="dt_category[12]" value="12"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer game play and information about games (news, tips, cheat codes).">
+
+				<label for="dt_category[12]">Games</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[74]" class="category_checkbox" name="dt_category[74]" value="74"  onChange="if (checked) bpjmConfirm('German Youth Protection', 'This category helps prevent viewing of youth-endangering content in Germany. Block pages for this category will include German text. You can override individual sites in the category to allow access, but you may then be providing access to content that is illegal pursuant to &sect; 4 Jugendmedienschutz-Staatsvertrag (JMStV).<br><br>OpenDNS does not guarantee compliance with German law.', this);" />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: This category helps prevent viewing of youth-endangering content in Germany. Block pages for this category will include German text. You can override individual sites in the category to allow access, but you may then be providing access to content that is illegal pursuant to &sect; 4 Jugendmedienschutz-Staatsvertrag (JMStV).<br><br>OpenDNS does not guarantee compliance with German law.">
+				<label for="dt_category[74]">German Youth Protection</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[49]" class="category_checkbox" name="dt_category[49]" value="49"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites operated by government agencies, including city, state, regional, county and federal levels.">
+				<label for="dt_category[49]">Government</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[13]" class="category_checkbox" name="dt_category[13]" value="13"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that promote intolerance based on gender, age, race, nationality, religion, sexual orientation or other group identities.">
+				<label for="dt_category[13]">Hate/Discrimination</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[14]" class="category_checkbox" name="dt_category[14]" value="14"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer information about health care and health services.">
+
+				<label for="dt_category[14]">Health</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[15]" class="category_checkbox" name="dt_category[15]" value="15"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that are intended to be funny or humorous.">
+				<label for="dt_category[15]">Humor</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[16]" class="category_checkbox" name="dt_category[16]" value="16"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer access or software to communicate in real-time with other individuals.">
+				<label for="dt_category[16]">Instant messaging</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[17]" class="category_checkbox" name="dt_category[17]" value="17"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer job listings, resume services, interview coaching and similar employment-related services.">
+				<label for="dt_category[17]">Jobs/Employment</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[60]" class="category_checkbox" name="dt_category[60]" value="60" checked="checked"  />&nbsp;
+			<span style="border-bottom: 1px dotted #999; background: #ffcccc; padding: 1px;" class="Tips1" title=" :: Sites displaying or dedicated to lingerie/bikini that could be considered adult-only.">
+
+				<label for="dt_category[60]">Lingerie/Bikini</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[19]" class="category_checkbox" name="dt_category[19]" value="19" checked="checked"  />&nbsp;
+			<span style="border-bottom: 1px dotted #999; background: #ffcccc; padding: 1px;" class="Tips1" title=" :: Sites that promote movies or offer movie watching online.">
+				<label for="dt_category[19]">Movies</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[50]" class="category_checkbox" name="dt_category[50]" value="50"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about music, including news, band and fan information.">
+				<label for="dt_category[50]">Music</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[33]" class="category_checkbox" name="dt_category[33]" value="33"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer news and information, including newspapers, broadcasters and other publishers.">
+				<label for="dt_category[33]">News/Media</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[69]" class="category_checkbox" name="dt_category[69]" value="69"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for non-profit or charity organizations and services.">
+
+				<label for="dt_category[69]">Non-profits</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[63]" class="category_checkbox" name="dt_category[63]" value="63" checked="checked"  />&nbsp;
+			<span style="border-bottom: 1px dotted #999; background: #ffcccc; padding: 1px;" class="Tips1" title=" :: Sites that provide images or representations of nudity.">
+				<label for="dt_category[63]">Nudity</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[20]" class="category_checkbox" name="dt_category[20]" value="20"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that facilitate the sharing of digital files between individuals, especially via peer-to-peer software, including torrent sites.">
+				<label for="dt_category[20]">P2P/File sharing</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[57]" class="category_checkbox" name="dt_category[57]" value="57"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that are placeholders \&amp;quot;parked\&amp;quot; for future use. Current uses may include single-page advertising sites.">
+				<label for="dt_category[57]">Parked Domains</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[48]" class="category_checkbox" name="dt_category[48]" value="48"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for sharing photographs, as individual images, galleries and albums.">
+
+				<label for="dt_category[48]">Photo sharing</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[71]" class="category_checkbox" name="dt_category[71]" value="71"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer podcasts, digital media files distributed over the Internet, often using syndication feeds, for playback on portable media players and personal computers. Both audio and video podcasts are included.">
+				<label for="dt_category[71]">Podcasts</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[66]" class="category_checkbox" name="dt_category[66]" value="66"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about politics, politicians, political parties and organizations. Government sites are separate.">
+				<label for="dt_category[66]">Politics</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[64]" class="category_checkbox" name="dt_category[64]" value="64" checked="checked"  />&nbsp;
+			<span style="border-bottom: 1px dotted #999; background: #ffcccc; padding: 1px;" class="Tips1" title=" :: Anything relating to pornography, including mild depiction, soft pornography or hard-core pornography.">
+				<label for="dt_category[64]">Pornography</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[21]" class="category_checkbox" name="dt_category[21]" value="21"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer gateways to the Internet as a whole, often including bundled services on their own site.">
+
+				<label for="dt_category[21]">Portals</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[61]" class="category_checkbox" name="dt_category[61]" value="61" checked="checked"  />&nbsp;
+			<span style="border-bottom: 1px dotted #999; background: #ffcccc; padding: 1px;" class="Tips1" title=" :: Sites providing proxy bypass information or services. Also, sites that allow the user to surf the net anonymously, including sites that allow the user to send anonymous emails.">
+				<label for="dt_category[61]">Proxy/Anonymizer</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[22]" class="category_checkbox" name="dt_category[22]" value="22"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer online radio listening or promote radio stations.">
+				<label for="dt_category[22]">Radio</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[65]" class="category_checkbox" name="dt_category[65]" value="65"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about religion, religious teachings and groups, and spirituality.">
+				<label for="dt_category[65]">Religious</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[54]" class="category_checkbox" name="dt_category[54]" value="54"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites such as encyclopedias, dictionaries and other research-related resources.">
+
+				<label for="dt_category[54]">Research/Reference</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[23]" class="category_checkbox" name="dt_category[23]" value="23"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer result listings based on keywords.">
+				<label for="dt_category[23]">Search engines</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[62]" class="category_checkbox" name="dt_category[62]" value="62" checked="checked"  />&nbsp;
+			<span style="border-bottom: 1px dotted #999; background: #ffcccc; padding: 1px;" class="Tips1" title=" :: Sites that provide information, images or implications of bondage, sadism, masochism, fetish, beating, body piercing or self-mutilation.">
+				<label for="dt_category[62]">Sexuality</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[24]" class="category_checkbox" name="dt_category[24]" value="24"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that promote interaction and networking between people.">
+				<label for="dt_category[24]">Social networking</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[47]" class="category_checkbox" name="dt_category[47]" value="47"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about computing, hardware and technology, including news, information, code and vendor information.">
+
+				<label for="dt_category[47]">Software/Technology</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[51]" class="category_checkbox" name="dt_category[51]" value="51"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about sports of all kinds, from professional to amateur, from news to league information and schedules.">
+				<label for="dt_category[51]">Sports</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[59]" class="category_checkbox" name="dt_category[59]" value="59"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that contain information on such subjects as mutilation, torture, horror, or the grotesque.">
+				<label for="dt_category[59]">Tasteless</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[34]" class="category_checkbox" name="dt_category[34]" value="34"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that promote television shows or offer television watching online.">
+				<label for="dt_category[34]">Television</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[73]" class="category_checkbox" name="dt_category[73]" value="73"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about tobacco use and related products, commercial and otherwise.">
+
+				<label for="dt_category[73]">Tobacco</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[68]" class="category_checkbox" name="dt_category[68]" value="68"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites with travel information and services, including reservations for airlines, cars, hotels, vacations, and trips.">
+				<label for="dt_category[68]">Travel</label>
+			</span>
+
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[26]" class="category_checkbox" name="dt_category[26]" value="26" checked="checked"  />&nbsp;
+			<span style="border-bottom: 1px dotted #999; background: #ffcccc; padding: 1px;" class="Tips1" title=" :: Sites for sharing video content.">
+				<label for="dt_category[26]">Video sharing</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+
+			<input type="checkbox" id="dt_category[27]" class="category_checkbox" name="dt_category[27]" value="27"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites for searching for images based on keywords.">
+				<label for="dt_category[27]">Visual search engines</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[28]" class="category_checkbox" name="dt_category[28]" value="28"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites about weapons, commercial and otherwise.">
+
+				<label for="dt_category[28]">Weapons</label>
+			</span>
+		</div>
+				<div class="category semi-highlight">
+			<input type="checkbox" id="dt_category[29]" class="category_checkbox" name="dt_category[29]" value="29"   />&nbsp;
+			<span style="border-bottom: 1px dotted #999; " class="Tips1" title=" :: Sites that offer the ability to send or receive email.">
+				<label for="dt_category[29]">Webmail</label>
+			</span>
+
+		</div>
+				
+		<div class="clr"></div>
+	</div>
+	<p style="text-align: right; padding: 10px;">
+		Looking for <a href="/dashboard/settings/1394024/security">security categories</a>?
+	</p>
+	<!-- categories end -->
+	</div>
+
+	<br />
+		<div style=""><div class="button"><input onclick="return false;" class="submitbutton" type="submit" id="save-categories" name="save-categories" value="Apply" /></div><div style="display: inline;">&nbsp;&nbsp;<input type="checkbox" name="applytoall" id="save-categories-applytoall" /><span class="applytoall" style="margin-right: 5px;"><label for="save-categories-applytoall">Apply to all  networks</label></span></div><div style="display: inline;">&nbsp;&nbsp;<img style="display: none; margin-bottom: -4px;" id="save-categories-busy" src="https://www-files.opendns.com/img/wait-icon.gif" /></div></div><div class="clr"></div><div class="clr"></div><div style="padding-top: 8px;" id="save-categories-message"></div>
+		<span id="categories-save-message"></span>
+</form>
+
+</div>
+<div class="setting-top"></div>
+<div class="setting">
+
+
+<form method="post" action="/dashboard/dashboard_ajax.php" onsubmit="return false;">
+	<div id="add-domain-container">
+
+		<h4 style="border-bottom: 1px solid #ddd; padding: 0 0 5px 0;">Manage individual domains</h4>
+		<p>If there are domains you want to make sure are always blocked (or always allowed) regardless of the categories blocked above, you can add them below.</p>
+
+		<div id="add-domain-hint" style="display: none;">
+			<p class="slim">
+				<b>Hint: to <span class="bl-wl">block</span> <em>all</em> subdomains, <span class="bl-wl">block</span> <span class="blocking-domain"></span>.</b>
+
+			</p>
+			<p>
+				I want to <span class="bl-wl">block</span>:&nbsp;
+				<span id="domain-without-www"></span>
+				&nbsp;or&nbsp;
+				<span id="domain-with-www"></span>
+			</p>
+
+			<input type="hidden" id="hint-displayed" value="false" />
+		</div> <!-- #add-domain-hint -->
+
+		<p class="slim">
+			<select id="block-type">
+				<option value="always">Always block</option>
+				<option value="never">Never block</option> 
+			</select>
+
+			<input type="text" id="block-domain" size="30" />
+		</p>
+
+		<input type="hidden" id="blocked-count" 
+			value="23" />
+		<input type="hidden" id="whitelist-count"
+			value="4" />
+		<br />
+
+		<div style=""><div class="button"><input onclick="return false;" class="submitbutton" type="submit" id="add-domain" name="add-domain" value="Add Domain" /></div><div style="display: inline;">&nbsp;&nbsp;<input type="checkbox" name="applytoall" id="add-domain-applytoall" /><span class="applytoall" style="margin-right: 5px;"><label for="add-domain-applytoall">Add to all  networks</label></span></div><div style="display: inline;">&nbsp;&nbsp;<img style="display: none; margin-bottom: -4px;" id="add-domain-busy" src="https://www-files.opendns.com/img/wait-icon.gif" /></div></div><div class="clr"></div><div class="clr"></div><div style="padding-top: 8px;" id="add-domain-message"></div>
+	</div> <!-- #add-domain-container -->
+
+</form>
+
+<div id="add-domain-results" style="display: none;">
+	<h4>You can block <span id="blocking-domain"></span> two different ways.</h4>
+	<ul style="margin-bottom: 0px; padding-bottom: 0px">
+		<li>
+			<input type="radio" name="block_categories" onclick="hide('domain-cats')" id="block-domain-option" checked="checked" />
+			Block <b><span class="blocking-domain"></span></b> &mdash; just the individual domain.
+		</li>
+
+		<li>
+			<input type="radio" name="block_categories" id="block-categories" onclick="show('domain-cats');" />
+			I'd rather block categories of websites that include <b><span class="blocking-domain"></span></b>
+		</li>
+	</ul>
+
+	<ul id="domain-cats" style="display: none; padding: 10px 30px 0 30px; margin-bottom: 0">
+	</ul>
+
+	<br />
+	<div style=""><div class="button"><input onclick="return false;" class="submitbutton" type="submit" id="confirm-add-domain" name="add-domain" value="Confirm" /></div><span style="font-size:11px;line-height:170%;">&nbsp;or&nbsp;<a href="/dashboard/settings/1394024/content_filtering">cancel</a></span></div><div class="clr"></div><div class="clr"></div><div style="padding-top: 8px;" id="add-domain-message"></div></div> <!-- #add-domain-results -->
+
+<div id="add-domain-results-blocked" style="display: none;">
+	<input type="hidden" value="" id="already-blocked-domain" />
+	<h4>You're already blocking <span class="already-blocking-domain"></span></h4>
+	
+	<p>You're blocking <span id="already-blocking-categories"></span> sites, which include <span class="already-blocking-domain"></span>.</p>
+
+	<p>Add <b><span class="already-blocking-domain"></span></b> to your individual domain list even though it's already blocked?</p>
+
+	<div style=""><div class="button"><input onclick="return false;" class="submitbutton" type="submit" id="confirm-add-already-blocked" name="confirm-add-already-blocked" value="Yes, add it" /></div><span style="font-size:11px;line-height:170%;">&nbsp;or&nbsp;<a href="/dashboard/settings/1394024/content_filtering">cancel</a></span></div><div class="clr"></div><div class="clr"></div><div style="padding-top: 8px;" id="confirm-add-already-blocked-message"></div>
+</div> <!-- #add-domain-results-blocked -->
+
+<div style="margin-top: 20px;">
+
+	<div id="always-block-container" style="">
+
+		<table width="100%" class="stats-table table-hl" width="100%" cellspacing="0" cellpadding="0" id="always-block-table">
+		<tbody>
+		<tr>
+			<th colspan="2">Always block:</th>
+		</tr>
+						<tr id="100957-blocked-domain" class="alt">
+			<td valign="top" width="99%">
+				<label for="100957">uncategorized-evilsite.com</label>
+
+			</td>
+			<td valign="top" align="center" width="1%">
+				<input type="checkbox" name="" id="100957" class="domains-list blocked-domain" value="100957" />
+			</td>
+		</tr>
+						<tr id="323844-blocked-domain" class="alt">
+			<td valign="top" width="99%">
+				<label for="323844">uncategorized-naughtysite.com</label>
+
+			</td>
+			<td valign="top" align="center" width="1%">
+				<input type="checkbox" name="" id="323844" class="domains-list blocked-domain" value="323844" />
+			</td>
+		</tr>
+						</tbody>
+		</table>
+
+	</div> <!-- #always-block -->
+
+	<div id="never-block-container" style="">
+
+		<table width="100%" class="stats-table table-hl" id="never-block-table" width="100%" cellspacing="0" cellpadding="0">
+		<tbody>
+		<tr>
+			<th colspan="2">Never block:</th>
+		</tr>
+						<tr id="103923-whitelist-domain" class="alt">
+
+			<td valign="top" width="99%">
+				<label for="wldomain_id[103923]">good-site.com</label>
+			</td>
+			<td valign="top" align="center" width="1%">
+				<input type="checkbox" name="wldomain_id[]" id="wldomain_id[103923]" class="domains-list whitelist-domain" value="103923"/>
+			</td>
+		</tr>
+						<tr id="100364-whitelist-domain">
+
+			<td valign="top" width="99%">
+				<label for="wldomain_id[100364]">another-good-one.com</label>
+			</td>
+			<td valign="top" align="center" width="1%">
+				<input type="checkbox" name="wldomain_id[]" id="wldomain_id[100364]" class="domains-list whitelist-domain" value="100364"/>
+			</td>
+		</tr>
+						</tbody>
+
+		</table>
+
+	</div> <!-- #never-block -->
+
+	<div id="delete-domains-div" style=" float: right;">
+	<div style=""><div class="button" style="float: right;"><input onclick="return false;" class="submitbutton" type="submit" id="delete-domains" name="delete-domains" value="Delete" /></div><div style="display: inline; float: right;">&nbsp;&nbsp;<input type="checkbox" name="applytoall" id="delete-domains-applytoall" /><span class="applytoall" style="margin-right: 5px;"><label for="delete-domains-applytoall">Delete from all  networks</label></span></div><div style="display: inline;">&nbsp;&nbsp;<img style="display: none; margin-bottom: -4px;" id="delete-domains-busy" src="https://www-files.opendns.com/img/wait-icon.gif" /></div></div><div class="clr"></div><div class="clr"></div><div style="padding-top: 8px;" id="delete-domains-message"></div>	</div>
+
+</div>
+
+</div>
+
+<div style="display: none">
+	<div id="bpjm-confirm" style="width: 500px">
+		<h2 id="bpjm-confirm-title" style="margin: 20px 20px 0 20px"></h2>
+		<div id="bpjm-confirm-text" style="margin: 10px 20px 20px 20px"></div>
+		<div style="position: absolute; bottom: 5px; right: 10px">	
+			<div style="float: right">
+				<div style=""><div class="button"><input onclick="return false;" class="submitbutton" type="submit" id="bpjm-confirm-cancel" name="bpjm-confirm-cancel" value="CANCEL" /></div></div><div class="clr"></div><div class="clr"></div><div style="padding-top: 8px;" id="bpjm-confirm-cancel-message"></div>			</div>
+			<div style="float: right; margin-right: 15px">
+				<div style=""><div class="button"><input onclick="return false;" class="submitbutton" type="submit" id="bpjm-confirm-accept" name="bpjm-confirm-accept" value="ACCEPT" /></div></div><div class="clr"></div><div class="clr"></div><div style="padding-top: 8px;" id="bpjm-confirm-accept-message"></div>			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var thisPage = 'filtering';
+</script>
+
+	</div>
+	<div class="clr"></div>
+
+	<input type="hidden" name="network-id" id="network-id" value="1394024" />
+
+	<!-- footer -->
+		<br class="clr" />
+		</div>
+		<div class="bottom"><div class="bottom-inner"><div class="bottom-inner-white"></div></div></div>
+	</div><!-- / roundbox -->
+	
+	<div style="display: none;">
+		<div id="tos" style="padding: 10px;">
+			<h2>OPENDNS TERMS OF SERVICE </h2>
+
+<p>These OpenDNS Terms of Service ("Terms of Service") govern your access to and use of the website <a href="http://www.opendns.com/"> http://www.opendns.com/</a> website (the "Site"), the OpenDNS Domain Name System ("DNS") services, any information or data (including, information or data generated or otherwise provided by OpenDNS or its partners through the Service or related services, or otherwise available through the Site that are not Submissions (as defined below), text, software, scripts, graphics, photos, documents and interactive features (the "Content"), and the OpenDNS software and other services associated with the DNS, (taken together, the "Service"). BY ACCESSING OR USING ANY OF THE SITE OR THE SERVICE YOU (AS THE "CUSTOMER") AGREE THAT CUSTOMER HAS READ, UNDERSTANDS, AND AGREES TO BE BOUND BY THIS TERMS OF SERVICE. </p>
+
+<p>PLEASE READ THESE TERMS OF SERVICE CAREFULLY BEFORE ACCESSING THE SITE OR OTHERWISE USING THE SERVICE. OPENDNS' ACCEPTANCE IS EXPRESSLY CONDITIONED UPON CUSTOMER'S ASSENT TO ALL OF THE TERMS AND CONDITIONS OF THESE TERMS OF SERVICE, TO THE EXCLUSION OF ALL OTHER TERMS; IF THESE TERMS OF SERVICE ARE CONSIDERED AN OFFER BY OPENDNS, CUSTOMER'S ACCEPTANCE IS EXPRESSLY LIMITED TO THESE TERMS.</p>
+
+<p>These Terms of Service are effective as of the date Customer first uses the Site or the Service or date Customer clicks the "I Accept" button (whichever is earliest) (the "Effective Date").  If you are an individual accepting on behalf of an entity Customer, you represent and warrant that: (i) you have full legal authority to bind your employer, or the applicable entity, to these terms and conditions; (ii) you have read and understand these Terms of Service; and (iii) you agree, on behalf of the party that you represent, to these Terms of Service.  If you do not have the legal authority to bind Customer, please do not use the Site or the Service and do not click the "I Accept" button (if any). </p>
+
+<p>If you have entered into a separate Master Services Agreement with OpenDNS, and there is any inconsistency between the terms of the Master Services Agreement and the terms of these Terms of Service, to the extent of a conflict, the conflicting terms in such Master Services Agreement will control.</p>
+
+<h3>A.	Types of OpenDNS Accounts.</h3>
+
+<p>Currently OpenDNS offers free accounts ("Free Account"), paid deluxe accounts ("Deluxe Account") and paid enterprise accounts ("Enterprise Account").  More information on the types of accounts is available at <a href="http://www.opendns.com/start/">http://www.opendns.com/start/</a>. </p>
+
+<h3>B.	Generally.  </h3>
+<p>The Site and the Service is available only to individuals who are at least 13 years old or possess legal parental or guardian consent. If Customer does not so qualify, do not attempt to use the Service or the Site. OpenDNS may refuse to offer the Site or the Service to any person or entity at any time and may change its eligibility criteria, at any time, in its sole discretion.</p>
+
+<p>If Customer purchased a paid Deluxe Account or Enterprise Account, OpenDNS will provide the Service to Customer for the term of their subscription.  OpenDNS will provide Customer with a password and an account to use for administering relevant features of the Service, if applicable. </p>
+
+<h3>C.	Modification of Terms of Service.</h3>
+<p>OpenDNS reserves the right, at its sole discretion, to modify or replace any of these Terms of Service at any time. OpenDNS will notify Customer of material changes to the Terms of Service by taking at least one of the following actions (1) sending an email to the Technical or Administrative Contact that is registered on the Customer account, (2) making notice on the Site (3) through the OpenDNS blog (<a href="http://blog.opendns.com/">http://blog.opendns.com/</a>) or (4) alerting the Customer via the account dashboard. Customer's continued use of the Service following the posting of any changes to the Terms of Service constitutes acceptance of those changes.</p>
+
+<h3>D.	New Features.</h3>
+<p>OpenDNS may, in the future, offer new services and/or features through the Service (including the release of new tools and resources). Such new features and/or services shall be subject to these Terms of Service. Customer's continued use of the Service after the introduction of new features and/or services constitutes Customer's acceptance of the Terms of Service.</p>
+
+<h3>E.	Specific Services</h3>
+<ol>
+<li> Anti-Phishing Service. As part of the Service, OpenDNS endeavors to identify phishing websites (i.e. websites which fraudulently collect personal information) and notify those persons using the Service when they attempt to visit a website identified as a phishing website. Notwithstanding the foregoing, OpenDNS does not guarantee that the Service will identify all phishing websites or notify Customer of such websites. OpenDNS is not liable for the effect of (including, without limitation, Customer's reliance on) this anti-phishing service.</li>
+<li> Blocking Services. As part of the Service, OpenDNS allows registered users to choose to block certain categories of websites (i.e., websites with content for adults) or individual websites. OpenDNS endeavors to identify the category of website and notify those persons using the Service with these services enabled when they attempt to visit a website identified as belonging to a designated category or selected as an individual block. Notwithstanding the foregoing, OpenDNS does not guarantee that the Service will accurately block such websites or notify Customer of such websites. OpenDNS is not liable for the effect of (including, without limitation, Customer's reliance on) these blocking services.</li>
+</ol>
+
+<h3>F.	Privacy.</h3>
+<p>OpenDNS' current Site Privacy Statement is available at <a href="http://www.opendns.com/privacy/">http://www.opendns.com/privacy/ (the Privacy Policy)</a>, which is incorporated by this reference. For inquiries in regard to OpenDNS' Privacy Policy, or to report a privacy related problem, please contact <a href="mailto:terms-of-use@opendns.com">terms-of-use@opendns.com</a>.</p>
+
+<h3>G.	Restrictions on Use</h3>
+
+<p>The Site and the Service and any Content made available on or through the Service is provided only for Customer's own personal use or Customer's internal business use except as otherwise expressly provided in this paragraph. If Customer desires to make any other commercial use of the Site or the Service, including but not limited to customizing, selling or distributing the Service (whether as a stand-alone service or bundled with Customer's services) for consideration of any kind or for no consideration, Customer must first obtain OpenDNS' specific written approval in advance and/or enter into a written agreement with OpenDNS. The Service is intended for use described above only and may not be used in connection with any other commercial endeavors except those that are specifically endorsed or approved by OpenDNS in writing. Except for distributions for the use described above to Customer's employees or independent contractors for Customer's internal business use and in compliance with these Terms of Service, Customer may not distribute or otherwise commercially exploit or make available to any third party the Service, or any part thereof, in any way. </p>
+
+<p>If Customer is a person, entity or service provider that manages or administers the OpenDNS account of a third party for the third party's internal business or personal use only, Customer (i) may use the Service in the support of the third party that uses the Service for their own personal or internal business use, all in compliance with all applicable laws, rules and regulations  (ii) shall not use, administer or manage the Service in violation of these Terms of Service, (iii) acknowledges and agrees that the OpenDNS Service and account is for the benefit of the OpenDNS customer only and upon any termination of Customer's relationship with the third party, the third party will be free to use, manage and administer the Service on its own, (iv) agrees not to charge for the Service and to ensure that the third party understands that any fees that Customer charges are solely for Customer's services and not for the Service, (v) shall not frame this Site, the Service or its content in any manner, and (vi) shall not, and shall not attempt to, block or remove any advertisements contained in or offered through the Service. Any unauthorized use of the Service is expressly prohibited. </p>
+
+<p>Unless OpenDNS' specifically agrees in writing, Customer will not, and will use commercially reasonable efforts to make sure a third party does not  (a) make any commercial use of the Site, Content or the Service, including but not limited to customizing, selling, reselling, distributing or the functional equivalent, the Service (whether as a stand-alone service or bundled with Customer's services) for consideration of any kind or for no consideration; (b) distribute or otherwise commercially exploit or make available to any third party the Service, or any part thereof, in any way; (c) directly or indirectly, modify, translate, decompile, disassemble, or reverse engineer any part of the Service or any Content available through the Site (except to the limited extent applicable laws specifically prohibit such restriction); (d) copy, rent, lease, distribute, or otherwise transfer any or the rights that Customer receives hereunder; (e) remove any proprietary notices or labels; (f) use any robot, spider, scraper or other automated means to access the Site or the Service for any purpose without OpenDNS' express written permission; (g) interfere or attempt to interfere with the proper working of the Site or the Service or any activities conducted on the Site or the Service; (h) bypass any measures OpenDNS may use to prevent or restrict access to the Site or the Service.</p>
+
+<p>Any unauthorized use of the Site or the Service is expressly prohibited. Customer will not use the Site or the Service for any purpose that is unlawful or prohibited by these Terms of Service and agrees to abide by all applicable local, state, national and international laws and regulations.</p>
+
+<h3>H.	Rules and Conduct</h3>
+<p>Customer promises not to use the Site or the Service for any purpose that is unlawful or prohibited by these Terms of Service. Customer agrees to abide by all applicable local, state, national and international laws and regulations.</p>
+
+<p>By way of example, and not as a limitation, Customer agrees not to (or permit others to) :(a) take any action or (b) upload, download, post, submit or otherwise distribute or facilitate distribution of any Customer submissions ("Submissions") such as, without limitation, postings to the OpenDNS Community, comments, text, communications, software, images, sounds, data or other materials or information) using any communications service or other service available on or through the Service, that:</p>
+<ul>
+<li>infringes any patent, trademark, trade secret, copyright, right of publicity or other right of any other person or entity;</li>
+
+<li>is unlawful, threatening, abusive, harassing, defamatory, libelous, deceptive, fraudulent, invasive of another's privacy, tortuous, obscene, offensive, profane or which otherwise violates the Terms of Service;</li>
+<li>constitutes unauthorized or unsolicited advertising, junk or bulk e-mail ("spamming");</li>
+<li>imposes an unreasonable or disproportionately (in the sole judgment of OpenDNS) large load on OpenDNS' computing, storage or communications infrastructure, or attempts to gain unauthorized access to the Service, other accounts, computer systems or networks connected to the Service, through password mining or otherwise;</li>
+<li>contains software viruses or any other computer codes, files, or programs that are designed or intended to disrupt, damage, limit or interfere with the proper function of any software, hardware, or telecommunications equipment or to damage or obtain unauthorized access to any system, data or other information of OpenDNS or any third party; or</li>
+<li>impersonates any person or entity, including, without limitation, any employee or representative of OpenDNS.</li>
+<li>Customer will not use any robot, spider, scraper or other automated means to access the Service for any purpose without OpenDNS' express written permission. Additionally, Customer will not: (i) interfere or attempt to interfere with the proper working of the Service or any activities conducted on the Service; or (ii) bypass any measures OpenDNS may use to prevent or restrict access to the Service.</li>
+<li>Customer shall not (and Customer shall not permit others to), directly or indirectly, modify, translate, decompile, disassemble, or reverse engineer any part of the Service or any Content available through the Site (except to the limited extent applicable laws specifically prohibit such restriction); or copy, rent, lease, distribute, or otherwise transfer any or the rights that Customer receives hereunder. In addition, Customer shall not remove any proprietary notices or labels.</li>
+<li>Customer may not harvest or collect information, including, without limitation, screen names, about other members or users of the Service. The use of any information learned through the Service or while in the Site is limited to the express purposes set forth in these Terms of Service; all other uses, including, without limitation, sending unsolicited bulk e-mail, are strictly prohibited.</li>
+
+<p>OpenDNS may remove any Content and Submissions at any time for any reason (including, but not limited to, upon receipt of claims or allegations from third parties or authorities relating to such Content or Submissions).</p>
+
+<p>Customer may not harvest or collect information, including, without limitation, screen names, about other members or users of the Site or the Service. The use of any information learned through the Service or while in the Site is limited to the express purposes set forth in these Terms of Service; all other uses, including, without limitation, sending unsolicited bulk e-mail, are strictly prohibited.</p>
+
+<p>OpenDNS may, at its sole discretion, immediately terminate Customer's access to the Site and/or the Service should Customer's conduct fail to conform strictly and terms or conditions of these Terms of Service, including, without limitation, with any provision of this section.</p>
+
+<h2>I.	Content and Submissions.</h2>
+
+<b>a.	OpenDNS Content Generally.</b>
+<p>Customer agrees that the Site and Service contains Content specifically provided by OpenDNS or its partners and that such Content is protected by copyrights, trademarks, service marks, patents, trade secrets or other proprietary rights and laws. Except as expressly authorized by OpenDNS in writing, Customer agrees not to sell, license, rent, modify, distribute, copy, reproduce, transmit, publicly display, publicly perform, publish, adapt, edit or create derivative works from such Content. OpenDNS has no obligation to monitor the Site, Service, or Content. Use of the Content for any purpose not expressly permitted in these Terms of Service is prohibited. Any rights not expressly granted herein are reserved.</p>
+
+<b>b.	Submissions Posted by User(s).</b>
+<p>OpenDNS provides features through the Service which allow users to upload, submit, disclose, distribute or otherwise post Submissions at or on the Site or otherwise through the Service (such as through the OpenDNS Community). If OpenDNS provides such features, Customer:</p>
+<ol>
+<li>grants to OpenDNS, its affiliates and their assignees the perpetual, irrevocable, non-exclusive, royalty-free right to use, reproduce, display, perform, adapt, modify, distribute, make derivative works of and otherwise exploit such Submissions in any form and for any purpose, including without limitation, any concepts, ideas or know-how embodied therein;</li>
+<li>represents and warrants to OpenDNS that Customer owns or otherwise controls all rights to such Submissions and that disclosure and use of such Submissions by OpenDNS (including without limitation, publishing content at the Site) will not infringe or violate the rights of any third party; and</li>
+<li>acknowledges that such Submissions may not be treated confidentially.</li>
+</ol>
+<p>Customer agrees not to provide OpenDNS with any information that Customer desires or is required to keep secret.</p>
+
+<p>If Customer is enabled to post Submissions as contemplated by this subsection (b) Customer is solely responsible for the Submissions Customer posts on or through the Service. OpenDNS does not endorse and has no control over the Submissions posted or otherwise provided by users. OpenDNS reserves the right to, immediately and without notice, delete or otherwise remove any user Submissions that, in OpenDNS' sole discretion it determines, violates these Terms of Service or which may be offensive, illegal or violate the rights, harm, or threaten the safety of any person.</p>
+
+<h3>A.	Third Party Sites.</h3>
+
+<p>The Service or the Site may permit Customer to link to other websites or resources on the Internet, and other websites or resources may contain links to the Site. These other websites are not under OpenDNS' control, and Customer acknowledges that OpenDNS is not responsible or liable for the content, functions, accuracy, legality, appropriateness or any other aspect of such websites or resources. The inclusion of any such link does not imply endorsement by OpenDNS or any association with its operators. Customer further acknowledges and agrees that OpenDNS shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such website or resource.</p>
+
+
+<h3>B.	Registration.</h3>
+
+<p>As a condition to using the Service, Customer will be required to register with OpenDNS by providing information to be specified during the registration process and additionally providing an email address and selecting a password to be used to access the service. Customer shall provide OpenDNS with accurate, complete, and updated registration information. Failure to do so shall constitute a breach of the Terms of Service, which may result in immediate termination of Customer's OpenDNS account. In addition, Customer agrees to maintain and update Customer's registration information to ensure that it is accurate and complete at all times. If Customer creates a username or display name ("OpenDNS ID"), Customer may not (i) select or use as an OpenDNS ID a name of another person with the intent to impersonate that person; (ii) use as an OpenDNS ID a name subject to any rights of a person other than Customer without appropriate authorization; or (iii) use as an OpenDNS ID a name that is otherwise offensive, vulgar or obscene. OpenDNS reserves the right to refuse registration of, or cancel an OpenDNS ID in its sole discretion. Customer is solely responsible for activity that occurs on Customer's account and shall be responsible for maintaining the confidentiality of Customer's OpenDNS password. Customer may never use another user's account without such other user's express permission. Customer will immediately notify OpenDNS in writing of any unauthorized use of Customer's account, or other account related security breach of which Customer is aware.</p>
+
+<h3>C.	Electronic Communications</h3>
+
+<p>By using the Site, Customer consents to receiving electronic communications from OpenDNS. These electronic communications may include notices about applicable fees and charges, transactional information and other information concerning or related to our Site and Service. These electronic communications are part of Customer's relationship with OpenDNS and Customer receives them as part of Customer's subscription to the Site and/or Service. Customer agrees that any notices, agreements, disclosures or other communications that we send Customer electronically will satisfy any legal communication requirements, including that such communications be in writing.</p>
+
+<h3>D.	Payment Terms </h3>
+<p><b>a.	Deluxe Account Holders</b></p>
+<p>If Customer has purchased a paid Deluxe subscription to the Site and Service from OpenDNS, Customer is expressly agreeing that OpenDNS is permitted to bill Customer the applicable fees, any applicable tax and any other charges Customer may incur with OpenDNS in connection with Customer's use of the Site and/or Service and that the fees will be billed to the credit card or Customer's PayPal account Customer provides in accordance with the billing terms in effect at the time a fee or charge is due and payable. If payment is not received or cannot be charged to Customer's credit card or PayPal account for any reason in advance of the applicable subscription period, OpenDNS reserves the right to either suspend or terminate Customer's access to the Site and/or any Service and terminate these Terms of Service. Subscription fees are payable in U.S. Dollars and based on Service purchased and not on actual usage. All fees are non-refundable. In addition, Customer's subscription will automatically renew for additional, successive subscription periods equal in duration to the initial subscription period that Customer initially purchased unless Customer terminates Customer's subscription prior to the next renewal period. Customer acknowledges and agrees that OpenDNS will automatically charge Customer's credit card or PayPal account on record with OpenDNS for the then-current subscription period upon the commencement of any renewal period. Customer will provide OpenDNS with valid and updated credit card or PayPal information and Customer authorizes OpenDNS to charge such credit card or PayPal account for all purchased subscriptions and renewals. Customer may terminate Customer's subscription to the Site and Service at any time and Customer will not be obligated to pay any additional fees for upcoming subscription renewal periods but any subscription fees Customer has paid in advance will not be refunded.</p>
+
+<p><b>b.	Enterprise Account Holders</b></p>
+<p>If Customer has purchased a paid Enterprise subscription to the Site and Service from OpenDNS, Customer is expressly agreeing that OpenDNS is permitted to bill Customer the applicable fees, any applicable tax and any other charges Customer may incur with OpenDNS in connection with Customer's use of the Site and/or Service. All fees shall be due and payable upon the commencement of the Subscription Term and on the first day of each renewal Term. Delinquent payments shall bear interest at the rate of one-and-one-half percent (1.5%) per month (or the highest rate permitted by law, if less) from the payment due date until paid in full. Customer will be responsible for all reasonable expenses (including attorneys' fees and costs) incurred by OpenDNS in collecting unpaid or delinquent amounts. OpenDNS reserves the right to suspend the Service (of which it shall provide advance notice, which may be by email) until Customer pays all past due amounts. All fees are non-refundable.</p>
+
+
+<h3>E.	Term and Termination.</h3>
+
+<p><b>a.	Free Account Holders</b></p>
+<p>If Customer has not purchased a paid subscription to the Site and Service, OpenDNS may terminate Customer's access to all or any part of the Service at any time, with or without cause, with or without notice, effective immediately. If Customer wishes to terminate these Terms of Service or Customer's OpenDNS account (if Customer has one), Customer may simply discontinue using the Service. </p>
+
+<p><b>b.	Deluxe and Enterprise Account Holders</b></p>
+<p>OpenDNS may suspend or terminate access to all or any part of the Service to any Customer at any time and terminate these Terms of Service, if: (i) Customer materially violates these Terms of Service; (ii) OpenDNS provides Customer with commercially reasonable notice of this violation (which may be by email to the Notification Email Address); (iii) OpenDNS uses commercially reasonable efforts to discuss and resolve the violation with Customer; and (iv) despite the foregoing, the violation is not resolved to OpenDNS' reasonable satisfaction, then OpenDNS reserves the right to suspend administrative access to the Service, or to particular components of the Service.  If, after all of the foregoing, Customer still has not cured a violation within thirty days of the commencement of a suspension under this Section, then OpenDNS may immediately terminate the Service for cause. If Customer wishes to terminate these Terms of Service or Customer's OpenDNS account (if Customer has one), Customer may simply discontinue using the Service. </p>
+
+<p>All provisions of the Terms of Service which by their nature should survive termination shall survive any termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
+
+<h3>F.	No Warranties.</h3>
+<p>EXCEPT AS EXPRESSLY PROVIDED ABOVE, THE SERVICE, SITE AND ALL CONTENT, SUBMISSIONS, PRODUCTS AND SERVICES INCLUDED IN OR AVAILABLE THROUGH THE SITE, ARE PROVIDED "AS IS" AND "AS AVAILABLE." THE SERVICE, SITE AND CONTENT, SUBMISSIONS, PRODUCTS AND SERVICES ARE PROVIDED WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, AND ANY WARRANTIES IMPLIED BY ANY COURSE OF PERFORMANCE OR USAGE OF TRADE, ALL OF WHICH ARE EXPRESSLY DISCLAIMED. OPENDNS, AND ITS AGENTS, PARTNERS, SUPPLIERS AND CONTENT PROVIDERS DO NOT WARRANT THAT: (A) ANY CONTENT OR SUBMISSIONS, INCLUDING, WITHOUT LIMITATION, ANY RESULTS, DATA, OR INFORMATION OBTAINED THROUGH THE SERVICE WILL BE ACCURATE, RELIABLE, OR COMPLETE; (B) THE SERVICE WILL BE SECURE OR AVAILABLE AT ANY PARTICULAR TIME OR LOCATION; (C) ANY DEFECTS OR ERRORS WILL BE CORRECTED; (D) THE CONTENT OR SUBMISSIONS ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS; OR (E) THE RESULTS OF USING THE SERVICE, OR OBTAINING PRODUCTS THROUGH THE SERVICE, WILL MEET CUSTOMER'S REQUIREMENTS. CUSTOMER'S USE OF THE SERVICE IS SOLELY AT CUSTOMER'S OWN RISK. NEITHER OPENDNS NOR ITS AGENTS, PARTNERS, SUPPLIERS OR CONTENT PROVIDERS MAKES ANY WARRANTIES OF ANY KIND IN REGARD TO ANY CONTENT, SUBMISSIONS, OPINIONS, ADVICE AND ALL OTHER INFORMATION EXPRESSED OR POSTED BY USERS OF THIS SITE.</p>
+
+<h3>G.	Limitation of Liability.</h3>
+<p>IN NO EVENT SHALL OPENDNS, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR SUPPLIERS BE LIABLE UNDER CONTRACT, TORT, STRICT LIABILITY, NEGLIGENCE OR ANY OTHER LEGAL THEORY WITH RESPECT TO THE SITE, THE SERVICES OR ANY CONTENT OR PRODUCTS ACCESSIBLE THROUGH THE SITE AND SERVICE (I) FOR ANY LOST PROFITS OR SPECIAL, INDIRECT, INCIDENTAL, PUNITIVE, OR CONSEQUENTIAL DAMAGES OF ANY KIND WHATSOEVER, SUBSTITUTE GOODS OR SERVICES (HOWEVER ARISING), (II) FOR ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE (REGARDLESS OF THE SOURCE OF ORIGINATION), (III) FOR ANY ERRORS, OMISSIONS, OR INACCURACIES IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF CUSTOMER'S USE OF ANY CONTENT OR SUBMISSIONS POSTED, EMAILED, TRANSMITTED OR OTHERWISE MADE AVAILABLE AT OR THROUGH THE SITE AND SERVICE. IN NO EVENT SHALL OPENDNS' AGGREGATE LIABILITY TO CUSTOMER OR ANY THIRD PARTY ARISING OUT OF THESE TERMS OF SERVICE, THE SITE OR THE SERVICE EXCEED THE GREATER OF THE AMOUNT CUSTOMER PAID OPENDNS IN THE PRECEDING TWELVE (12) MONTHS AND THE AMOUNT OF FIFTY DOLLARS ($50.00). SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATIONS AND EXCLUSIONS MAY NOT APPLY TO CUSTOMER. CUSTOMER SPECIFICALLY ACKNOWLEDGES THAT OPENDNS SHALL NOT BE LIABLE FOR ANY SUBMISSIONS OR USER CONDUCT.</p>
+
+<h3>H.	Indemnification.</h3>
+<p><b>a.	Free Account Holders, Deluxe Account Holders and Enterprise Account Holders</b></p>
+<p>Customer, at its expense, shall indemnify, defend and hold harmless OpenDNS, its affiliates and their employees, contractors, officers, directors and representatives from all liabilities, claims, and expenses, including reasonable attorneys' fees, that arise from Customer's (i) use or misuse of the Service that is in violation of the Terms of Service or violates applicable law; (ii) access to the Site, use of the Service, Submissions, in violation of the Terms of Service; or, (iii) the infringement by Customer, or any third party using Customer's account, of any intellectual property or other right of any person or entity. OpenDNS reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by Customer, in which event Customer will assist and cooperate with OpenDNS in asserting any available defenses.</p>
+
+<p><b>b.	Enterprise Account Holders</b></p>
+<p>If Customer has purchased a paid Enterprise subscription to the Site and Service from OpenDNS, OpenDNS, at its expense, shall indemnify, defend and hold harmless Customer against any losses, costs and damages arising from a claim by a third party against Customer that the Service infringe any United States patent issued as of the Effective Date or misappropriates any protected trade secret; provided that Customer will provide OpenDNS with (i) prompt written notice of the claim, (ii) sole control over the defense or settlement (provided, however, that any such settlement shall not result in financial liability on Customer or require its admission of any fault without its prior written consent), and (iii) reasonable support and cooperation with regard to the defense. In the event that OpenDNS' right to provide the Service is enjoined or in OpenDNS' reasonable opinion is likely to be enjoined, OpenDNS may, at its expense, obtain the right to continue providing the Service, replace or modify the Service so that they become non-infringing but remain functionally equivalent, or if such remedies are not reasonably available, terminate this Contract without liability to Customer.  OpenDNS shall have no indemnification liability under this Indemnification Section or otherwise to the extent a claim or suit is based upon (a) use of the Service in combination with software or hardware not provided by OpenDNS if infringement would have been avoided in the absence of such combination, (b) modifications to the Service not made by OpenDNS, if infringement would have been avoided by the absence of such modifications, (c) use of any version other than a current release of the Service, if infringement would have been avoided by use of a current release.</p>
+
+
+<h3>I.	International/Non-California Use.</h3>
+<p>OpenDNS makes no representation that the Content or Submissions are appropriate or available for use in locations outside of California, and accessing the Service is prohibited from territories where such Content or Submissions are illegal. If Customer accesses the Service from other locations, Customer does so at Customer's own initiative and is responsible for compliance with local laws.</p>
+
+<h3>J.	Dispute Resolution.</h3>
+<p>A printed version of these Terms of Service and of any notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to these Terms of Service to the same extent and subject to the same conditions as other business documents and records originally generated and maintained in printed form. Customer and OpenDNS agree that any cause of action arising out of or related to the Service must commence within one (1) year after the cause of action arose; otherwise, such cause of action is permanently barred.</p>
+
+<p>These Terms of Service shall be governed by and construed in accordance with the laws of the State of California, excluding its conflicts of law rules, and the United States of America. Customer expressly agrees that the exclusive jurisdiction for any claim or action arising out of or relating to these Terms of Service or Customer's use of this Site or Service shall be filed only in the state or federal courts located in San Francisco County, California and Customer further agrees and submits to the exercise of personal jurisdiction of such courts for the purpose of litigating any such claim or action. Use of the Service is not authorized in any jurisdiction that does not give effect to all provisions of these Terms of Service, including without limitation, this section.</p>
+
+<h3>K.	Integration and Severability</h3>
+
+<p>These Terms of Service are the entire agreement between the Customer and OpenDNS with respect to the Service and use of this Site, and supersede all prior or contemporaneous communications and proposals (whether oral, written or electronic) between Customer and OpenDNS with respect to this Site (but excluding the use of any software which may be subject to a separate end-user license agreement). If any provision of the Terms of Service is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that the Terms of Service will otherwise remain in full force and effect and enforceable.</p>
+
+<h3>L.	Miscellaneous.</h3>
+<p>These Terms of Service and the Customer's use of the Site and Service contemplated hereunder are personal to Customer, and are not assignable, transferable or sublicensable by Customer except with OpenDNS' prior written consent. OpenDNS may assign, transfer or delegate any of its rights and obligations hereunder without consent. All waivers and modifications must be in a writing signed by both parties, except as otherwise provided herein. No agency, partnership, joint venture, or employment relationship is created as a result of these Terms of Service and neither party has any authority of any kind to bind the other in any respect. In any action or proceeding to enforce rights under these Terms of Service, the prevailing party will be entitled to recover costs and attorneys' fees. All notices under these Terms of Service will be in writing and will be deemed to have been duly given when received, if personally delivered or sent by certified or registered mail, return receipt requested; when receipt is electronically confirmed, if transmitted by facsimile or e-mail; or the day after it is sent, if sent for next day delivery by recognized overnight delivery service.</p>
+
+<h3>M.	Copyright and Trademark Notices.</h3>
+<p>Unless otherwise indicated, all Content provided by OpenDNS is copyright  &copy;2006-2010 OpenDNS Incorporated. All rights reserved.</p>
+
+<p>OpenDNS and PhishTank are either trademarks or registered trademarks of OpenDNS Incorporated. The names of actual companies and products mentioned at the Site may be the trademarks of their respective owners.</p>
+
+<h3>N.	Digital Millennium Copyright Act Notice.</h3>
+<p>OpenDNS has adopted the following policy toward copyright infringement in accordance with the Digital Millennium Copyright Act (<a href="http://lcweb.loc.gov/copyright/legislation/dmca.pdf">http://lcweb.loc.gov/copyright/legislation/dmca.pdf</a>). The address of OpenDNS' Designated Agent to Receive Notification of Claimed Infringement ('Designated Agent') is listed at the end of this policy.</p>
+
+<p>It is OpenDNS' policy to (1) block access to or remove Submissions and content posted by users that it believes in good faith to be copyrighted material that has been illegally copied and distributed by any of our advertisers, affiliates, content providers, members or users; and (2) remove and discontinue providing the Service to repeat offenders.</p>
+
+<b>a.	Procedure for Reporting Copyright Infringements:</b>
+<p>If Customer believes that Submissions or content residing on or accessible through the Site or Service infringes a copyright, please send a notice of copyright infringement containing the following information to the Designated Agent listed below:</p><ol>
+<li>A physical or electronic signature of a person authorized to act on behalf of the owner of the copyright that has been allegedly infringed;</li>
+<li>Identification of works or materials being infringed;</li>
+
+<li>Identification of the Submissions or content that is claimed to be infringing including information regarding the location of the Submissions or content that the copyright owner seeks to have removed, with sufficient detail so that OpenDNS is capable of finding and verifying its existence;</li>
+<li>Contact information about the notifier including address, telephone number and, if available, e-mail address;</li>
+<li>A statement that the notifier has a good faith belief that the Submissions or content is not authorized by the copyright owner, its agent, or the law; and</li>
+<li>A statement made under penalty of perjury that the information provided is accurate and the notifying party is authorized to make the complaint on behalf of the copyright owner.</li>
+</ol>
+<p><b>b.	Once Proper Bona Fide Infringement Notification is Received by the Designated Agent:</b></p>
+<p>It is OpenDNS' policy:</p>
+<ol>
+
+<li>to remove or disable access to the infringing Submissions or content;</li>
+
+<li>to notify the Submissions or content provider, member or user that it has removed or disabled access to the Submissions or content; and</li>
+<li>that repeat offenders will have the infringing Submissions or content removed from the system and that OpenDNS will terminate such content provider's, member's or user's access to the Service.</li>
+</ol>
+<b>c.	Procedure to Supply a Counter-Notice to the Designated Agent:</b>
+<p>If the Submissions or content provider, member or user believes that the Submissions or content that was removed or to which access was disabled is either not infringing, or the Submissions or content provider, member or user believes that it has the right to post and use such Submissions or content from the copyright owner, the copyright owner's agent, or pursuant to the law, the content provider, member or user must send a counter-notice containing the following information to the Designated Agent listed below:</p>
+<ol>
+<li>A physical or electronic signature of the Submissions or content provider, member or user;</li>
+<li>Identification of the Submissions or content that has been removed or to which access has been disabled and the location at which the Submissions or content appeared before it was removed or disabled;</li>
+<li>A statement that the Submissions or content provider, member or user has a good faith belief that the Submissions or content was removed or disabled as a result of mistake or a misidentification of the Submissions or content; and</li>
+<li>Submissions or content provider's, member's or user's name, address, telephone number, and, if available, e-mail address and a statement that such person or entity consents to the jurisdiction of the Federal Court for the judicial district in which the content provider's, member's or user's address is located, or if the Submissions or content provider's, member's or user's address is located outside the United States, for any judicial district in which OpenDNS is located, and that such person or entity will accept service of process from the person who provided notification of the alleged infringement.</li>
+
+</ol>
+<p>If a counter-notice is received by the Designated Agent, OpenDNS' may send a copy of the counter-notice to the original complaining party informing that person that it may replace the removed Submissions or content or cease disabling it in 10 business days. Unless the copyright owner files an action seeking a court order against the Submissions or content provider, member or user, the removed Submissions or content may be replaced, or access to it restored, in 10 to 14 business days or more after receipt of the counter-notice, at OpenDNS' discretion.</p>
+<p>Please contact OpenDNS' Designated Agent to Receive Notification of Claimed Infringement at the following address:</p>
+
+<p>Designated Agent</p>
+OpenDNS<br>
+410 Townsend Street, Suite 250<br>
+San Francisco, CA 94107<br>
+United States of America<br>
+Phone: 415-344-3118<br>
+
+Fax: 415-344-3252<br>
+Email: <a href="mailto:terms-of-use@opendns.com">terms-of-use@opendns.com</a></p>
+
+<h3>Creative Commons.</h3>
+<p>This work (the Terms of Service) is licensed under a Creative Commons Attribution-ShareAlike 2.5 License. We would appreciate a link to our home page <a href="http://www.opendns.com/">http://www.opendns.com/</a> if Customer does use the work, though the link is not required.</p>
+
+<h3>Contact.</h3>
+<p>OpenDNS' full contact information, including location, may be found on our Contact page at <a href="http://www.opendns.com/about/contact/">http://www.opendns.com/about/contact/</a>.</p>
+
+		</div>
+	</div>
+
+	<div id="footer-top"></div>
+	<div id="footer">	
+	<div class="inner">	
+		<p class="center">
+			<b>Support:</b> &nbsp;
+			<a href="http://www.opendns.com/support/">Knowledge Base</a> |
+			<a href="http://cache.opendns.com/">CacheCheck</a> |
+			<a href="http://system.opendns.com/">System Status</a> |
+			<a href="http://forums.opendns.com/">Forums</a>
+
+			&nbsp; &nbsp; &nbsp; &nbsp;
+			<b>News &amp; Notes:</b> &nbsp;
+			<a href="http://blog.opendns.com/">OpenDNS Blog</a> 
+				<a href="http://blog.opendns.com/feed/"><img src="https://www-files.opendns.com/dashboard/img/feed_grey.gif" style="margin-bottom: -1px; border: 0;" /></a>
+		</p>
+
+		<p class="center">
+			<b>Connect:</b> &nbsp;
+			<a href="http://www.twitter.com/opendns" onclick="_gaq.push(['_trackEvent', 'dashboard', 'twitter']);"><img src="https://www.opendns.com/img/icon-twitter.gif" style="margin: 0 3px -4px 3px; border: 0" height="16" width="16" alt="Twitter" /></a> <a href="http://www.twitter.com/opendns" onclick="_gaq.push(['_trackEvent', 'dashboard', 'twitter']);">Follow Us</a> | <a href="http://www.facebook.com/opendns/" onclick="_gaq.push(['_trackEvent', 'dashboard', 'facebook']);"><img src="https://www.opendns.com/img/icon-facebook.gif" style="margin: 0 3px -4px 3px; border: 0" height="16" width="16" alt="Facebook" /></a> <a href="http://www.facebook.com/opendns/" onclick="_gaq.push(['_trackEvent', 'dashboard', 'facebook']);">Become a Fan</a>
+		</p>
+		<p class="center slim">
+
+			The OpenDNS nameservers are <b>208.67.222.222</b> and <b>208.67.220.220</b>.
+					</p>
+	</div>	
+	</div>
+	<div id="footer-bottom"></div>
+	<div class="terms">
+		<p class="center">	
+			Copyright &copy; 2011 <a href="http://www.opendns.com">OpenDNS</a> |
+			<a href="http://www.opendns.com/terms/">Terms of Service</a> |
+			<a href="http://www.opendns.com/privacy/">Privacy Policy</a> |
+			<a href="http://www.opendns.com/contact/">Contact</a>
+
+		</p>
+	</div>
+</div><!-- / container -->
+
+	
+<script src="https://www-files.opendns.com/jsloader/dashboardajax:82e57308,dashboard:514a9c53.js" type="text/javascript"></script>
+
+<input type="hidden" name="formtoken" id="formtoken" value="49b15399cbd36f7e2540f2ade4094fd5" />
+<script type="text/javascript">
+$jq(document).ready(function() {
+
+	function tosack() {
+		$jq.ajax({
+			url: 'https://www.opendns.com/dashboard/' +
+				'async/termsofservice/accept.php',
+			data: {
+				'formtoken': $jq('#formtoken').val(),
+				'organization-ids': $jq('#ids').val()
+			},
+			type: 'get',
+			success: function(result) {
+				$jq(document).colorbox.close();
+			}
+		});
+	}
+
+	if (0) {
+		$jq(document).colorbox({
+			inline: true,
+			href: "#tos",
+			width: 600,
+			height: 600,
+			open: true,
+			title: '<div id="tos-container" style="position: relative;"><input type="submit" name="tos-accept" id="tos-accept" value="Accept" /></div>',
+			escKey: false,
+			overlayClose: false,
+			onComplete: function() {
+				$jq('#cboxClose').hide();
+				$jq('#tos-accept').click(function() {
+					$jq('#tos-accept').attr('disabled', 'disabled');
+					$jq('#tos-container').append('<img src="/img/spinner_small.gif" style="position: absolute; margin-left: 5px;" />');
+					tosack();
+				});
+				$jq(document).unbind('keydown.cbox_close');
+			},
+			onClosed: function() {
+				$jq('#tos-container img').remove();
+			}
+		});
+	}
+});
+
+window.addEvent('domready', function() {
+
+	if ($('audience-popup') && $('audience-popup-overlay') &&
+		$('audience-select') && $('close-audience-popup'))
+	{
+		$('audience-popup-overlay').setStyles({ 
+			'width': window.getScrollWidth(), 
+			'height': window.getScrollHeight(),
+			'opacity': '0.5'});
+
+		show('audience-popup');
+		show('audience-popup-overlay');
+
+		$('close-audience-popup').addEvent('click', function() {
+			hide('audience-popup');
+			hide('audience-popup-overlay');
+
+			var params = {
+				'action': 'setting_save_audience',
+				'audience': $('audience-select').value
+			};
+
+			var ajaxReq = new Ajax('/dashboard/dashboard_ajax.php', {
+				method: 'post', postBody: params, evalResponse: false
+			}).request();
+		});
+	}
+	
+	if ($$('.table-hl') != '') { tableHighlight(); }
+});
+			
+</script>
+<script type="text/javascript">
+// Custom variable for "Using OpenDNS" status
+_gaq.push(
+	['_setCustomVar', 1, 
+		"Using OpenDNS", "Yes", 1]);
+</script>
+
+
+<script type="text/javascript">
+(function() {
+	var ga = document.createElement('script');
+	ga.type = 'text/javascript';
+	ga.async = true;
+	ga.src = ('https:' == document.location.protocol ?
+		'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	(document.getElementsByTagName('head')[0] ||
+		document.getElementsByTagName('body')[0]).appendChild(ga);
+})();
+</script><SCRIPT type="text/javascript" src="https://lct.salesforce.com/sfga.js"></SCRIPT>
+<SCRIPT type="text/javascript">__sfga();</SCRIPT>
+</body>
+</html>
