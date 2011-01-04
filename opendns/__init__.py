@@ -29,7 +29,7 @@ import cookielib
 import os
 import re
 import csv
-from StringIO import StringIO
+from cStringIO import StringIO
 try:
     import simplejson as json
 except ImportError: 
@@ -153,6 +153,8 @@ class Client(object):
         '''
         Returns a dictionary of categories and category info for a given domain
         '''
+        # TODO: the returned data from OpenDNS has a lot of cruft
+        # strip it down to only useful info
         url = DASHBOARD_URL + "/stats/%s/topdomains_categories/%s" % \
             (self.network_id, domain)
         resp_dict = self._get_response(url, returns_json=True)
