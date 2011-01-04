@@ -13,7 +13,7 @@ SMTP_PORT = 587
 SMTP_USER = SMTP_FROM = ''
 SMTP_TO = ''
 SMTP_PASSWORD = ''
-LOG_FILENAME = '/tmp/opendns_flagblock.log'
+LOG_FILENAME = '/tmp/opendns_flagblocked.log'
 USER_AGENT = None
 
 logging.basicConfig(filename=LOG_FILENAME, 
