@@ -23,10 +23,13 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-import urllib, urllib2, cookielib
-import os, re, csv
+import urllib
+import urllib2
+import cookielib
+import os
+import re
+import csv
 from StringIO import StringIO
-
 try:
     import simplejson as json
 except ImportError: 
