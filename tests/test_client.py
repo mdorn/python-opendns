@@ -81,9 +81,7 @@ class TestOpenDNSClient(unittest.TestCase):
         '''
         Get and return mocked data for use with mocked _get_response method
         '''
-        # print args, kwargs
         val = None
-        
         # TODO: there's GOT to be a more elegant way of determining which
         # method is being invoked
         if args[0] == opendns.DOMAIN_TAG_URL + '/submit/':
@@ -112,6 +110,7 @@ class TestOpenDNSClient(unittest.TestCase):
         if kwargs.has_key('returns_json'):
             if kwargs['returns_json']:
                 val = json.loads(val)
+
         return val
         
 if __name__ == '__main__':
