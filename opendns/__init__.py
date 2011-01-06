@@ -44,10 +44,8 @@ log.addHandler(NullHandler())
 
 try:
     from lxml import etree
-    has_lxml = True
 except ImportError:
     log.warn("lxml not found -- some features will not be available")
-    has_lxml = False
 
 DASHBOARD_URL = "https://www.opendns.com/dashboard"
 DOMAIN_TAG_URL = "http://www.opendns.com/community/domaintagging"
@@ -82,8 +80,8 @@ class Client(object):
             # get form token
             resp = self.opener.open(DASHBOARD_URL)
             html = resp.read()
-            m = re.search('.*name="formtoken" value="([0-9a-f]*)".*', html)
-            formtoken = m.group(1)
+            match = re.search('.*name="formtoken" value="([0-9a-f]*)".*', html)
+            formtoken = match.group(1)
         
             # login
             post_vals = {
@@ -99,16 +97,11 @@ class Client(object):
             text = self._get_response(
                 DASHBOARD_URL + '/signin', post_vals, headers)
             
-            if has_lxml:
-                parser = etree.HTMLParser()        
-                tree = etree.parse(StringIO(text), parser)
-                failed_login = tree.xpath('//*[@id="ac_error_login"]')
+            find_error = re.search('ac_error_login', text)
+            if find_error:
+                failed_login = True
             else:
-                find_error = text.find('ac_error_login')
-                if find_error >= 0:
-                    failed_login = True
-                else:
-                    failed_login = False
+                failed_login = False
             if failed_login:
                 raise OpenDNSException('Login failed')
 

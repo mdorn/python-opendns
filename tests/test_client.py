@@ -15,7 +15,6 @@ import mocked_responses
 class TestOpenDNSClient(unittest.TestCase):
     
     def setUp(self):
-        mock = Mock()
         self.client = opendns.Client('username', 'password', 123456, 
             skip_login=True)
         # TODO: currently no good way to test login using mock without
@@ -25,28 +24,29 @@ class TestOpenDNSClient(unittest.TestCase):
         # override _get_response to not make any network calls but to use
         # the mocked data instead
         self.client._get_response.side_effect = self._custom_return_vals
-
-    def test_read_functions(self):
-        # test stats
+        
+    def test_stats(self):        
         retval = self.client.get_stats('blocked', datetime.date.today())
         self.assertTrue(retval[0].has_key('Domain'))
         self.assertTrue(retval[0]['Domain'] == 'evilsite.com')
 
+    def test_category_info(self):
         # test get category info about domain
         retval = self.client.get_domain_categories('youtube.com')
         self.assertTrue(retval['rsp']['enabled']['26']['name'] == \
             'Video sharing')
-        
+
+    def test_get_categories(self):
         # test retrieval of category list
         retval = self.client.get_categories()
         self.assertTrue('Pornography' in retval.values())
-        
+
+    def test_blacklist_list(self):
         # test list of blacklisted domains
         retval = self.client.get_blacklist_domains()
         self.assertTrue('uncategorized-evilsite.com' in retval.values())
 
-    def test_submit_functions(self):
-
+    def test_blacklist(self):
         # test blacklisting a domain
         retval = self.client.add_blacklist_domain('evilsite.com', force=True)
         self.client._get_response.assert_called_with(
@@ -58,7 +58,7 @@ class TestOpenDNSClient(unittest.TestCase):
             returns_json=True)
         self.assertEqual(retval, 1234)
         
-        # test removing domains from blacklist
+    def test_unblacklist(self):
         retval = self.client.remove_blacklist_domains([1234, 5678])
         self.assertEqual(retval, True)
         self.client._get_response.assert_called_with(
@@ -69,7 +69,7 @@ class TestOpenDNSClient(unittest.TestCase):
                 'n': 123456}, 
             returns_json=True)
             
-        # test submit a domain w/ suggested category
+    def test_submit_domain(self):
         retval = self.client.submit_domain('evilsite.com', 64)
         self.assertEqual(retval, True)
         self.client._get_response.assert_called_with(
